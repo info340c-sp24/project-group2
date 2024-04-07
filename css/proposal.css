@@ -1,0 +1,52 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: azure;
+    text-align: center;
+}
+
+header {
+    font-size: larger;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.problem {
+    background-color: #313131;
+    color: #000;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+}
+
+.appdescr {
+    background-color: #313131;
+    color: #000;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+}
+
+.impact {
+    background-color: #313131;
+    color: #000;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
+}
+
+
+body {
+    background-color: black;
+    margin-left: 20px;
+    margin-right: 20px;
+}
