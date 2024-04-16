@@ -1,1 +1,24 @@
+* {
+    box-sizing: border-box;
+    font-family: "Raleway";
+}
 
+.container {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    background-color: #4F3265;
+    padding: .5rem;
+    padding-bottom: 1rem;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Raleway", Helvetica, sans-serif;
+    color: #FEFCF9;
+    font-weight: 600;
+}
