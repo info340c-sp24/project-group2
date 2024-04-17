@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Niranjanaa Kannan">
+    <meta name="description" content="Media upload page of the platform. Allows users to upload images and videos for sharing or processing.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/media-upload.css">
+    <title>Media Upload</title>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>Media Upload</h1>
+        </div>
+        <a href="#"><span class="material-icons" aria-label="Home">home</span></a>
+    </nav>
+    
+    <main>
+        <div class="upload-container">
+            <h2>Upload your media files here</h2>
+            <p>Select an image or video to upload.</p>
+            <input type="file" id="fileInput" accept="image/*, video/*">
+            <button onclick="uploadFile()">Upload</button>
+            <div id="preview" class="preview">
+                <p>No file selected yet...</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Copyright © 2023.</p>
+    </footer>
+</body>
+</html>
+

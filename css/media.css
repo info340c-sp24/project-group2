@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FEFCF9;
+}
+
+main {
+    position: relative;
+    width: 390px;
+    height: 844px;
+    background: #FEFCF9;
+    overflow: hidden;
+}
+
+nav {
+    position: absolute;
+    width: 391px;
+    height: 65px;
+    top: 0;
+    left: 0;
+    background: #4F3265;
+    border-radius: 0 0 30px 30px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.material-icons {
+    position: absolute;
+    left: 15px;
+    top: 13px;
+    width: 38px;
+    height: 38px;
+    background: #FFFFFF;
+    border-radius: 50%;
+}
+
+button {
+    position: absolute;
+    width: 174px;
+    height: 33px;
+    left: 108px;
+    top: 790px;
+    font-size: 16px;
+    background: #4F3265;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+}
+
+.upload-container {
+    position: absolute;
+    width: 53px;
+    height: 53px;
+    left: 26px;
+    top: 87px;
+    background: #F5EAF9;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+h2, p {
+    position: absolute;
+    left: 43px;
+    top: 202px;
+    color: #4F3265;
+    font-size: 20px;
+}
+
+.ic-round-folder {
+    position: absolute;
+    width: 154px;
+    height: 154px;
+    background: #4F3265;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FEFCF9;
+    font-size: 24px;
+}
