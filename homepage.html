@@ -9,10 +9,11 @@
         <meta name="author" content="Pournami Varma">
 
         <!-- Description of the page -->
-        <meta name="description" content="">
+        <meta name="description" content="Homepage for RSO Communication Webpage">
 
         <!-- Links -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="css/homepage.css">
         <title>Homepage</title>
     
@@ -24,6 +25,7 @@
             <div class="container">
                 <h1>RSO Homepage</h1>
             </div>
+            <a href="#" class="upper-right"><span class="material-icons">settings</span></a>
         </header>
         
         <!-- Main section of content -->
@@ -31,8 +33,39 @@
             <section id="home"> 
                 <div class="reminders">
                   <h2>Reminders</h2>
-            
-              </section>
+                  <form id="reminder-box">
+                    <div class="reminder-item">
+                        <label>
+                            <input type="checkbox" name="reminder" value="reminder1">
+                            Sign Registration Form
+                        </label>
+                    </div>
+                    <div class="reminder-item">
+                        <label>
+                            <input type="checkbox" name="reminder" value="reminder2">
+                            Practcice @ 7pm, IMA
+                        </label>
+                    </div>
+                    <div class="reminder-item">
+                        <label>
+                            <input type="checkbox" name="reminder" value="reminder3">
+                            Upload Practice Video
+                        </label>
+                    </div>
+
+                    <div class="flex-container">
+                        <div class="flex-item calendar">
+                            <h2>Calendar</h2>
+                        </div>
+                        <div class="flex-item messaging">
+                            <h2>Messaging</h2>
+                        </div>
+                        <div class="flex-item media-upload">
+                            <h2>Media Upload</h2>
+                        </div>
+                    </div>
+
+                </form>
         </main>
 
         <!-- Footer at bottom of page -->

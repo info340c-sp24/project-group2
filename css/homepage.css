@@ -23,3 +23,31 @@ h1 {
     font-weight: 600;
 }
 
+.upper-right {
+    position: absolute;
+    top: 9px;
+    right: 38px;
+}
+
+.material-icons {
+    font-size: 60px;
+    color: white;
+}
+
+.reminders {
+    width: 340px;
+    background-color: #FDF8FF;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flex-container {
+    width: 425px;
+    background-color: #FFFFFF;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
