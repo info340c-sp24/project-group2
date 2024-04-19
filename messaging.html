@@ -26,47 +26,59 @@
             <div class="container">
                 <h1>Messaging</h1>
             </div>
-            <a href="a" class="upper-left"><span class="material-icons" aria-label="Home">home</span></a>
+            <a href="project-group2/homepage.html" class="upper-left"><span class="material-icons" aria-label="Home">home</span></a>
         </nav>
         
         <!-- Main section of content -->
         <main>
-            <div>
-                <section>
-                    <div>
+            <div id="main-content">
+                <div id="left-rect">
+                    <div id="channels">
                         <div id="channel-section">
-                            <h3>channels</h3>
-                            <a href="a"><span class="material-icons" aria-label="carrot">carrot</span></a>
-                            <h5>#main</h5>
-                            <h5>#exec</h5>
-                            <h5>#finance</h5>
-                            <h5>#social</h5>
-                            <h5>#random</h5>
+                            <div class="dropdown">
+                                <h3>channels</h3>
+                                <span id="dropdown-arrow" class="material-icons" aria-label="Collapse-channels">arrow_drop_down</span>
+                            </div>
+                            <div>
+                                <h5>#main</h5>
+                                <h5>#exec</h5>
+                                <h5>#finance</h5>
+                                <h5>#social</h5>
+                                <h5>#random</h5>
+                            </div>
                         </div>
+                        <div id="dm_section">
+                            <div class="dropdown">
+                                <h3>direct messages</h3>
+                                <span id="dropdown-arrow" class="material-icons" aria-label="Collapse-dms">arrow_drop_down</span>
+                            </div>
+                            <div>
+                                <h5>#user2</h5>
+                                <h5>#user3</h5>
+                                <h5>#user2, user3</h5>
+                            </div>
+                        </div>
+                        <div id="external-section">
+                            <div class="dropdown">
+                                <h3>external channels</h3>
+                                <span id="dropdown-arrow" class="material-icons" aria-label="Collapse-external">arrow_drop_down</span>
+                            </div>
+                            <div>
+                                <h5>#RSO15</h5>
+                                <h5>#RSO2</h5>
+                                <h5>#HUB Activities</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="right-rect">
                         <div>
-                            <h3>direct messages</h3>
-                            <a href="#"><span class="material-icons" aria-label="Home"></span></a>
-                            <h5>#user2</h5>
-                            <h5>#user3</h5>
-                            <h5>#user2, user3</h5>
+                            <h3>#main</h3>
                         </div>
-                        <div>
-                            <h3>external channels</h3></li>
-                            <a href="a"><span class="material-icons"></span></a>
-                            <h5>#RSO15</h5>
-                            <h5>#RSO2</h5>
-                            <h5>#HUB Activities</h5>
+                        <div id="message-box">
+                            <h5>type a message</h5>
                         </div>
                     </div>
-                </section>
-                <section>
-                    <div>
-                        <h3>#main</h3>
-                    </div>
-                    <div id="message-box">
-                        <h5>type a message</h5>
-                    </div>
-                </section>
+                </div>
             </div>
         </main>
 
