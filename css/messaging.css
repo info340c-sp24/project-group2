@@ -63,25 +63,21 @@ nav a {
     bottom: 223px;
 }
 
-#channels div {
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 10px;
-}
-
-h3 {
+h2 {
     font-size: 22px;
     font-weight: 550;
     color: #4F3265;
     margin-bottom: 10px;
+    margin-left: 10px;
 }
 
-h5 {
+h3 {
     font-size: 18px;
     font-weight: 400;
     color: #4F3265;
     margin-top: 8px;
     margin-bottom: 8px;
+    margin-left: 10px;
 }
 
 #right-rect {
@@ -95,7 +91,7 @@ h5 {
     border-bottom-right-radius: 10px;
 }
 
-#right-rect h3 {
+#right-rect h2 {
     margin: 15px;
     padding-bottom: 10px;
     font-weight: 500;
@@ -103,6 +99,9 @@ h5 {
 }
 
 #message-box {
+    display: flex;
+    flex-direction: row;
+
     position: fixed;
     bottom: 110px;
     left: 600px;
@@ -115,9 +114,18 @@ h5 {
     border-color: #4F3265;
 }
 
-#message-box h5 {
+#message-box h3 {
     margin: 10px;
     font-weight: 300;
+    position: fixed;
+    padding-left: 5px;
+}
+
+#send-icon {
+    font-size: 26px;
+    color: #4F3265;
+    padding-left: 710px;
+    padding-top: 6px;
 }
 
 .dropdown {
@@ -131,6 +139,13 @@ h5 {
     padding-top: 20px;
 }
 
-#channel-section h5:first-of-type {
+#channel-section h3:first-of-type {
     background-color: #F5EAF9;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-position-x: 200px;
+}
+
+#channel-section {
+    width: 374px;
 }
