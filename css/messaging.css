@@ -41,7 +41,12 @@ nav a {
     color: #FEFCF9;
 }
 
-main div section:first-of-type {
+#main-content {
+    display:flex;
+    justify-content: center;
+}
+
+#left-rect {
     position: fixed;
     width: 364px;
     height: 730px;
@@ -51,34 +56,35 @@ main div section:first-of-type {
     background-color: #FDF8FF;
 }
 
-main div section:first-of-type div {
+#channels {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    bottom: 223px;
 }
 
-main div section:first-of-type div div:first-of-type {
+#channels div {
     margin-top: 0;
     margin-bottom: 0;
-}
-
-main div section:first-of-type li {
-    display: inline;
-    text-decoration: none;
+    margin-left: 10px;
 }
 
 h3 {
     font-size: 22px;
     font-weight: 550;
     color: #4F3265;
+    margin-bottom: 10px;
 }
 
 h5 {
     font-size: 18px;
     font-weight: 400;
     color: #4F3265;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
-main div section:nth-of-type(2) {
+#right-rect {
     position: fixed;
     background-color: #F5EAF9;
     width: 1035px;
@@ -89,9 +95,11 @@ main div section:nth-of-type(2) {
     border-bottom-right-radius: 10px;
 }
 
-main div section:nth-of-type(2) h3 {
+#right-rect h3 {
     margin: 15px;
-    font-weight: 450;
+    padding-bottom: 10px;
+    font-weight: 500;
+    border-bottom: 0.5px solid #AA8CBC;
 }
 
 #message-box {
@@ -110,4 +118,19 @@ main div section:nth-of-type(2) h3 {
 #message-box h5 {
     margin: 10px;
     font-weight: 300;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: row;
+}
+
+#dropdown-arrow {
+    font-size: 32px;
+    color: #4F3265;
+    padding-top: 20px;
+}
+
+#channel-section h5:first-of-type {
+    background-color: #F5EAF9;
 }
