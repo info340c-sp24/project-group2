@@ -9,6 +9,7 @@ nav {
     left: 0;
     width: 100%;
     height: 80px;
+    flex-wrap: wrap;
 
     background-color: #4F3265;
     border-bottom-left-radius: 200px;
@@ -37,7 +38,7 @@ h1 {
 
 .purple-rectangle {
     box-sizing: border-box;
-    position: fixed;
+    position: absolute;
     width: 340px;
     height: 821px;
     left: 71px;
@@ -46,6 +47,7 @@ h1 {
     border: 0.5px solid #AA8CBC;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
 }
 
 h2 {
@@ -76,16 +78,7 @@ h2 {
     justify-content: flex-end;
     margin-top: 60px;
     margin-left: auto; 
-}
-
-@media (max-width: 768px) {
-    .flex-container {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
+    flex-wrap: wrap;
 }
 
 .flex-item {
@@ -97,6 +90,7 @@ h2 {
     text-align: center;
     margin-bottom: 20px; 
     margin-top: 100px;
+    flex-wrap: wrap;    
 }
 
 .flex-item.calendar {
