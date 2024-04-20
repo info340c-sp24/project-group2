@@ -3,34 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Niranjanaa Kannan">
-    <meta name="description" content="Media upload page of the platform. Allows users to upload images and videos for sharing or processing.">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="css/media-upload.css">
+    <meta name="description" content="Media upload page for RSO platform, allows for internal and external media sharing.">
+    <link rel="stylesheet" href="css/media.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:wght@400;600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Media Upload</title>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <h1>Media Upload</h1>
-        </div>
-        <a href="#"><span class="material-icons" aria-label="Home">home</span></a>
-    </nav>
-    
+    <header>
+        <i class="material-icons home-icon">home</i>
+        <h1>Media Upload</h1>
+    </header>
+
     <main>
-        <div class="upload-container">
-            <h2>Upload your media files here</h2>
-            <p>Select an image or video to upload.</p>
-            <input type="file" id="fileInput" accept="image/*, video/*">
-            <button onclick="uploadFile()">Upload</button>
-            <div id="preview" class="preview">
-                <p>No file selected yet...</p>
+        <section class="upload-form">
+            <label for="fileInput" class="file-upload-btn">
+                <i class="material-icons">add_circle</i>
+            </label>
+            <input type="file" id="fileInput" accept="image/*, video/*" style="display: none;">
+        </section>
+
+        <section class="recent-uploads">
+            <h2>Recent Uploads</h2>
+            <div class="folder-container">
+                <div class="folder" id="week1">Week 1</div>
+                <div class="folder" id="week2">Week 2</div>
+                <div class="folder" id="week3">Week 3</div>
+                <div class="folder" id="week4">Week 4</div>
             </div>
-        </div>
+        </section>
+
+        <section class="older-files">
+            <h2>Older Files</h2>
+            <div class="folder-container">
+                <div class="folder" id="winter2023">Winter 2023</div>
+                <div class="folder" id="spring2023">Spring 2023</div>
+                <div class="folder" id="fall2023">Fall 2023</div>
+                <div class="folder" id="winter2024">Winter 2024</div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <p>Copyright © 2023.</p>
+        <p>Copyright © 2023 Niranjanaa Kannan. All rights reserved.</p>
     </footer>
 </body>
 </html>
