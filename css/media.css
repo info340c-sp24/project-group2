@@ -22,22 +22,25 @@ header {
 }
 
 .material-icons {
-    font-size: 60px;
+    font-size: 60px;  
 }
 
 .home-icon {
     position: absolute;
     top: 10px;
     left: 20px;
-    font-size: 100px;
 }
 
 .upload-form {
-    margin-top: 20px;
-    text-align: center;
+    position: relative;
+    width: 100%;
+    padding: 20px;
 }
 
 .file-upload-btn {
+    position: absolute;
+    top: 0px;
+    left: 0px;
     width: 39px;
     height: 39px;
     background: #F5EAF9;
@@ -47,31 +50,53 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    border: none;
+}
+
+.folder-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .folder {
     width: 154px;
     height: 154px;
-    background: #4F3265;
-    color: #FEFCF9;
-    border-radius: 50%;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin: 10px;
-    font-size: 16px;
+    position: relative;
+    border-radius: 10px;
+    background: transparent; 
+}
+
+.folder i.material-icons {
+    font-size: 100px;
+    color: #4F3265; 
+}
+
+.folder h3 {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
     text-align: center;
+    font-size: 14px;
+    color: #4F3265;
+    margin: 0;
 }
 
 main {
     width: 80%;
-    margin: auto;
+    margin: 20px auto;
     padding: 20px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    position: relative; 
+}
+
+.upload-form h2, .recent-uploads h2, .older-files h2 {
+    color: #4F3265;
 }
 
 footer {
@@ -83,3 +108,5 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
