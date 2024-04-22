@@ -1,0 +1,281 @@
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    color: #333;
+    background-color: #FEFCF9;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    font-family: 'Raleway', Helvetica, sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #4F3265;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.material-icons {
+    font-size: 60px;
+    color: #FEFCF9;
+}
+
+.upper-left, .upper-right {
+    position: absolute;
+    top: 9px;
+}
+
+.upper-left {
+    left: 38px;
+}
+
+.upper-right {
+    right: 38px;
+}
+
+h1 {
+    font-size: 37px;
+    color: #FEFCF9;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    background: #FFFFFF;
+    color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Calendar Page Styles */
+.calendly {
+    text-align: center;
+    background: #AA8CBC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    top: 17%;
+    width: 25%;
+    font-weight: medium;
+    color: white;
+}
+
+.rectangle-2 {
+    width: 1000px;
+    height: 400px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Homepage Styles */
+#home {
+    display: flex;
+    flex-direction: row; /* Change to row to position items side by side */
+    justify-content: space-around; /* Distribute items evenly horizontally */
+    align-items: flex-start; /* Align items at the top */
+    margin-top: 40px; /* Adjusted margin-top */
+}
+
+.purple-rectangle {
+    width: 340px;
+    height: 821px;
+    background-color: #FDF8FF;
+    border: 0.5px solid #AA8CBC;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column; /* Change to column to stack items vertically */
+    align-items: center; /* Align items at the center horizontally */
+    justify-content: space-around; /* Distribute items evenly vertically */
+    width: 300px; /* Adjusted width */
+}
+
+.flex-item {
+    padding: 20px;
+    background-color: #FDF8FF; /* Match background color */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px; /* Add margin between items */
+}
+
+.flex-item:not(:last-child) {
+    margin-bottom: 0; /* Remove margin for last child */
+}
+
+.flex-item.calendar, .flex-item.message, .flex-item.media {
+    width: 300px;
+}
+
+.flex-item a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.flex-item a:hover {
+    color: #AA8CBC;
+}
+
+/* Media Upload Page Styles */
+.upload-form {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.file-upload-btn {
+    background: #F5EAF9;
+    color: #4F3265;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    border: none;
+}
+
+.folder-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.folder {
+    width: 154px;
+    height: 154px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    position: relative;
+    border-radius: 10px;
+    background: transparent;
+}
+
+.folder i.material-icons {
+    font-size: 100px;
+    color: #4F3265;
+}
+
+.folder h3 {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #4F3265;
+    margin: 0;
+}
+
+/* Messaging Page Styles */
+#left-rect, #right-rect {
+    position: fixed;
+}
+
+#left-rect {
+    width: 364px;
+    height: 730px;
+    top: 120px;
+    left: 90px;
+    border-radius: 10px;
+    background-color: #FDF8FF;
+}
+
+#channels, #dm_section, #external-section {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 223px;
+}
+
+#right-rect {
+    background-color: #F5EAF9;
+    width: 1035px;
+    height: 650px;
+    top: 160px;
+    left: 454px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#right-rect h2 {
+    margin: 15px;
+    padding-bottom: 
+
+20px;
+    border-bottom: 1px solid #4F3265;
+}
+
+#right-rect .channel {
+    padding: 10px;
+    border-bottom: 1px solid #4F3265;
+}
+
+#right-rect .channel:last-child {
+    border-bottom: none;
+}
+
+/* Profile Page Styles */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-content h1 {
+    margin-bottom: 10px;
+}
+
+.profile-content p {
+    margin-bottom: 20px;
+}
