@@ -279,3 +279,36 @@ footer {
 .profile-content p {
     margin-bottom: 20px;
 }
+
+@media (min-width: 48em) { 
+    html {
+        font-size: 68.75%; 
+    }
+
+    .material-icons, .upper-left, .upper-right {
+        font-size: 6rem; 
+    }
+
+    nav {
+        height: 10rem; 
+    }
+
+    main {
+        width: 80%;
+        padding: 3rem;
+    }
+
+    footer {
+        padding: 3rem 1rem;
+    }
+}
+
+@media (min-width: 64em) { 
+    html {
+        font-size: 75%; 
+    }
+
+    main {
+        max-width: 96rem; 
+    }
+}
