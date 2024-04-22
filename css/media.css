@@ -21,28 +21,32 @@ header {
     height: 80px;
 }
 
-.material-icons.home-icon {
-    position: absolute;
-    top: 9px;
-    left: 38px;
-    width: 60px;
-    height: 60px;
-    color: #FFFFFF;
-    background: transparent;  /* Ensures there is no colored background behind the icon */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    border-radius: 50%; /* Makes the icon circular, matching the Calendar function style */
-}
-
 .upload-form {
     position: relative;
     width: 100%;
     padding: 20px;
 }
 
+.material-icons.home-icon {
+    position: absolute;
+    top: 20px; 
+    left: 20px; 
+    width: 40px;
+    height: 40px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    border-radius: 50%;
+}
+
 .file-upload-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 39px;
+    height: 39px;
     background: #F5EAF9;
     color: #4F3265;
     border-radius: 5px;
@@ -50,8 +54,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 39px;
-    height: 39px;
     border: none;
 }
 
@@ -84,7 +86,7 @@ header {
     width: 100%;
     text-align: center;
     font-size: 14px;
-    color: #4F3265;
+    color: #4F3265; /* Purple color */
     margin: 0;
 }
 
@@ -97,6 +99,10 @@ main {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.upload-form h2, .recent-uploads h2, .older-files h2 {
+    color: #4F3265;
+}
+
 footer {
     text-align: center;
     padding: 20px 10px;
@@ -107,20 +113,12 @@ footer {
     width: 100%;
 }
 
-@media (max-width: 768px) {
-    .material-icons {
-        font-size: 48px; /* Smaller icons on mobile */
-    }
 
-    .folder h3 {
-        font-size: 12px; /* Smaller text in folders for mobile */
-    }
 
-    main {
-        padding: 10px; /* Less padding on mobile */
-        flex-direction: column; /* Stack sections vertically on smaller screens */
-    }
-}
+
+
+
+
 
 
 
