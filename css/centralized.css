@@ -210,52 +210,55 @@ footer {
 }
 
 /* Messaging Page Styles */
-#left-rect, #right-rect {
-    position: fixed;
+#messaging-page .upper-left {
+    left: 38px;  
 }
 
-#left-rect {
-    width: 364px;
-    height: 730px;
-    top: 120px;
-    left: 90px;
-    border-radius: 10px;
-    background-color: #FDF8FF;
-}
-
-#channels, #dm_section, #external-section {
+#messaging-page .message-container {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    bottom: 223px;
+    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-#right-rect {
+#messaging-page #channels, #messaging-page #dm_section, #messaging-page #external-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;  
+}
+
+#messaging-page #left-rect {
+    background-color: #FDF8FF;
+    padding: 20px;
+}
+
+#messaging-page #right-rect {
     background-color: #F5EAF9;
-    width: 1035px;
-    height: 650px;
-    top: 160px;
-    left: 454px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    padding: 20px;
 }
 
-#right-rect h2 {
-    margin: 15px;
-    padding-bottom: 
-
-20px;
-    border-bottom: 1px solid #4F3265;
+#messaging-page h2, #messaging-page h3 {
+    color: #4F3265;  
 }
 
-#right-rect .channel {
-    padding: 10px;
-    border-bottom: 1px solid #4F3265;
+@media (max-width: 768px) {
+    #messaging-page .material-icons {
+        font-size: 48px; 
+    }
+
+    #messaging-page nav {
+        height: 60px; 
+    }
+
+    #messaging-page main {
+        width: 95%;
+        padding: 10px;
+    }
 }
 
-#right-rect .channel:last-child {
-    border-bottom: none;
-}
 
 /* Profile Page Styles */
 .container {
