@@ -81,14 +81,16 @@ footer {
     background: #AA8CBC;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    top: 17%;
     width: 25%;
     font-weight: medium;
     color: white;
+    margin: 0 auto; /* Center horizontally */
+    margin-top: 5%; /* Adjust vertical spacing as needed */
 }
 
+/* Centralize the "Google Calendar API Connected" section */
 .rectangle-2 {
-    width: 1000px;
+    width: 60%; /* Adjust width as needed */
     height: 400px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -97,6 +99,8 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 200px auto; /* Center horizontally and move down */
+    margin-top: 14%;
 }
 
 /* Homepage Styles */
