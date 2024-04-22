@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="author" content="Niranjanaa Kannan">
     <meta name="description" content="Media upload page for RSO platform, allows for internal and external media sharing.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/media.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway:wght@400;600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,59 +11,35 @@
 </head>
 <body>
     <header>
-        <a href="homepage.html" class="home-icon" aria-label="Go to homepage"><span class="material-icons">home</span></a>
+        <i class="material-icons home-icon">home</i>
         <h1>Media Upload</h1>
     </header>
 
     <main>
         <section class="upload-form">
-            <button class="file-upload-btn" aria-label="Upload File">
-                <span class="material-icons add-icon">add_circle</span>
-            </button>
+            <label for="fileInput" class="file-upload-btn">
+                <i class="material-icons add-icon">add_circle</i>
+            </label>
             <input type="file" id="fileInput" accept="image/*, video/*" style="display: none;">
         </section>
 
         <section class="recent-uploads">
             <h2>Recent Uploads</h2>
             <div class="folder-container">
-                <div class="folder">
-                    <span class="material-icons" aria-hidden="true">folder</span>
-                    <h3>Week 1</h3>
-                </div>
-                <div class="folder">
-                    <span class="material-icons" aria-hidden="true">folder</span>
-                    <h3>Week 2</h3>
-                </div>
-                <div class="folder">
-                    <span class="material-icons" aria-hidden="true">folder</span>
-                    <h3>Week 3</h3>
-                </div>
-                <div class="folder">
-                    <span class="material-icons" aria-hidden="true">folder</span>
-                    <h3>Week 4</h3>
-                </div>
+                <div class="folder"><i class="material-icons">folder</i><h3>Week 1</h3></div>
+                <div class="folder"><i class="material-icons">folder</i><h3>Week 2</h3></div>
+                <div class="folder"><i class="material-icons">folder</i><h3>Week 3</h3></div>
+                <div class="folder"><i class="material-icons">folder</i><h3>Week 4</h3></div>
             </div>
         </section>
 
         <section class="older-files">
             <h2>Older Files</h2>
             <div class="folder-container">
-                <div class="folder">
-                    <span class="material-icons" aria-hidden="true">folder</span>
-                    <h3>Winter 2023</h3>
-                </div>
-                <div class="folder">
-                    <span class="material-icons" aria-hidden="true">folder</span>
-                    <h3>Spring 2023</h3>
-                </div>
-                <div class="folder">
-                    <span class="material-icons" aria-hidden="true">folder</span>
-                    <h3>Fall 2023</h3>
-                </div>
-                <div class="folder">
-                    <span class="material-icons" aria-hidden="true">folder</span>
-                    <h3>Winter 2024</h3>
-                </div>
+                <div class="folder"><i class="material-icons">folder</i><h3>Winter 2023</h3></div>
+                <div class="folder"><i class="material-icons">folder</i><h3>Spring 2023</h3></div>
+                <div class="folder"><i class="material-icons">folder</i><h3>Fall 2023</h3></div>
+                <div class="folder"><i class="material-icons">folder</i><h3>Winter 2024</h3></div>
             </div>
         </section>
     </main>
@@ -74,6 +49,8 @@
     </footer>
 </body>
 </html>
+
+
 
 
 
