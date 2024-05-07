@@ -150,11 +150,18 @@ h3 {
     background-position-x: 200px;
 }
 
-.upper-lower-left {
+#back-arrow h4 {
+    color: #4F3265;
+    font-size: 16px;
     position: absolute;
-    top: 20px;
+    top: 70px;
+    left: 50px;
 }
 
-#back-arrow {
-    
+#back-arrow-icon {
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    font-size: 25px;
+    color:#4F3265;
 }
