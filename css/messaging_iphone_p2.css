@@ -68,8 +68,93 @@ nav a {
     color: #FEFCF9;
 }
 
+h2 {
+    font-size: 22px;
+    font-weight: 550;
+    color: #4F3265;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #4F3265;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 10px;
+}
+
 #main-content {
     display:flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+#right-rect {
+    position: fixed;
+    position: center;
+    width: 400px;
+    height: 719px;
+    top: 120px;
+    left: 50px;
+    background-color: #F5EAF9;
+    border-radius: 10px;
+}
+
+#channels {
+    display: none;
+}
+
+#right-rect h2 {
+    margin: 15px;
+    padding-bottom: 10px;
+    font-weight: 500;
+    border-bottom: 0.5px solid #AA8CBC;
+}
+
+#message-box {
+    display: flex;
+    flex-direction: row;
+
+    position: fixed;
+    bottom: 90px;
+    left: 70px;
+    width: 355px;
+    height: 41px;
+    border-radius: 8px;
+    background-color: #FDF8FF;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #4F3265;
+}
+
+#message-box h3 {
+    margin: 10px;
+    font-weight: 300;
+    position: fixed;
+    padding-left: 5px;
+}
+
+#send-icon {
+    font-size: 26px;
+    color: #4F3265;
+    padding-left: 320px;
+    padding-top: 6px;
+}
+
+#channel-section h3:first-of-type {
+    background-color: #F5EAF9;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-position-x: 200px;
+}
+
+.upper-lower-left {
+    position: absolute;
+    top: 20px;
+}
+
+#back-arrow {
+    
 }
