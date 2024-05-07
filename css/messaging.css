@@ -235,7 +235,7 @@ h3 {
         padding-top: 20px;
     }
 
-    #channel-section h3:first-of-type {
+    #main-channel {
         background-color: #F5EAF9;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
