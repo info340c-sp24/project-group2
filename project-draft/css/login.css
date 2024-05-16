@@ -1,1 +1,88 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    background: #FEFCF9;
+    color: #333;
+    font-size: 16px;
+}
+
+header {
+    background: #4F3265;
+    color: #FEFCF9;
+    padding: 20px 10px;
+    text-align: center;
+    position: relative;
+    border-radius: 0 0 200px 200px;
+    height: 80px; 
+}
+
+.header-container {
+    position: relative;
+    text-align: center;
+    padding: 10px;
+}
+
+.material-icons.home-icon {
+    position: absolute;
+    left: 20px; 
+    top: 50%;  
+    transform: translateY(-50%);
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 24px; 
+}
+
+.login-container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-btn {
+    background: #4F3265;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    background: #FFFFFF;
+    color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 
