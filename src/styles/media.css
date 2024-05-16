@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    background: #FEFCF9;
+    color: #333;
+    font-size: 16px;
+}
+
+header {
+    background: #4F3265;
+    color: #FEFCF9;
+    padding: 20px 10px;
+    text-align: center;
+    position: relative;
+    border-radius: 0 0 200px 200px;
+    height: 80px;
+}
+
+.upload-form {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+}
+
+.material-icons.home-icon {
+    position: absolute;
+    top: 9px;
+    left: 38px;
+    width: 60px;
+    height: 60px;
+    color: #FFFFFF;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    border-radius: 50%; 
+}
+
+.file-upload-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 39px;
+    height: 39px;
+    background: #F5EAF9;
+    color: #4F3265;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.folder-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.folder {
+    width: 154px;
+    height: 154px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    position: relative;
+    border-radius: 10px;
+    background: transparent;
+}
+
+.folder i.material-icons {
+    font-size: 100px;
+    color: #4F3265;
+}
+
+.folder h3 {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #4F3265; 
+    margin: 0;
+}
+
+main {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.upload-form h2, .recent-uploads h2, .older-files h2 {
+    color: #4F3265;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    background: #FFFFFF;
+    color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
