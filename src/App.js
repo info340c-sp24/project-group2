@@ -5,7 +5,6 @@ import MessagingPage from './pages/messaging';
 import { NavBar } from './pages/messaging.js';
 import './styles/messaging.css';
 
-
 function App(props) {
   return (
     <Router>
