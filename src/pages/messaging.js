@@ -9,6 +9,7 @@ function MessagingPage() {
       <main>
         <div id="main-content">
           <LeftRect />
+          <RightRect />
         </div>
       </main>
 
@@ -36,7 +37,6 @@ function MessagingPage() {
 
 export default MessagingPage;
 
-const pagesArray = ['Homepage', 'Calendar', 'Messaging', 'Media'];
 
 function NavBar() {
     return (
@@ -112,7 +112,21 @@ function LeftRect() {
   );
 }
 
-
+function RightRect() {
+  return (
+    <div id="right-rect">
+      <div>
+        <h2>#main</h2>
+      </div>
+      <div id="message-box">
+        <h3>type a message</h3>
+        <span id="send-icon" className="material-icons" aria-label="Send">
+          send
+        </span>
+      </div>
+    </div>
+  );
+}
 
 
 function jsxCode() {
