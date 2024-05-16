@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+    font-family: "Raleway";
+}
+
+/* code from centralized css stylesheet */
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #FEFCF9;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #4F3265;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.material-icons {
+    font-size: 60px;
+    color: #FEFCF9;
+}
+
+.upper-left, .upper-right {
+    position: absolute;
+    top: 9px;
+}
+
+.upper-left {
+    left: 38px;
+}
+
+.upper-right {
+    right: 38px;
+}
+
+h1 {
+    font-size: 37px;
+    color: #FEFCF9;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    background: #FFFFFF;
+    color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* end of code from centralized css stylesheet */
+
+/* commented out non-centralized heading code */
+/*
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+
+    background-color: #4F3265;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+
+.material-icons {
+    font-size: 60px;
+}
+
+.upper-left {
+    position: absolute;
+    top: 9px;
+    left: 38px;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Raleway", Helvetica, sans-serif;
+    font-size: 37px;
+    color: #FEFCF9;
+    font-weight: 600;
+    margin-top: 15px;
+}
+*/
+
+nav a {
+    position: relative;
+    bottom: 65px;
+    left: 45px;
+    color: #FEFCF9;
+}
+
+#main-content {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#left-rect {
+    position: fixed;
+    position: center;
+    width: 400px;
+    height: 719px;
+    top: 120px;
+    left: 50px;
+    background-color: #FDF8FF;
+    border-radius: 10px;
+}
+
+#channels {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 223px;
+}
+
+#main-link {
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 550;
+    color: #4F3265;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #4F3265;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 10px;
+}
+
+#right-rect h2 {
+    display: none;
+}
+
+#message-box h3 {
+    display: none;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: row;
+}
+
+#dropdown-arrow {
+    font-size: 32px;
+    color: #4F3265;
+    padding-top: 17px;
+}
+
+#channel-section {
+    width: 374px;
+}
+
+
+
+@media (min-width: 768px) {
+
+    #left-rect {
+        position: fixed;
+        width: 364px;
+        height: 730px;
+        left: 90px;
+    }
+
+    #right-rect {
+        position: fixed;
+        background-color: #F5EAF9;
+        width: 1035px;
+        height: 650px;
+        top: 160px;
+        left: 454px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    #right-rect h2 {
+        margin: 15px;
+        padding-bottom: 10px;
+        font-weight: 500;
+        border-bottom: 0.5px solid #AA8CBC;
+    }
+
+    #message-box {
+        display: flex;
+        flex-direction: row;
+
+        position: fixed;
+        bottom: 110px;
+        left: 600px;
+        width: 749px;
+        height: 41px;
+        border-radius: 8px;
+        background-color: #FDF8FF;
+        border-style: solid;
+        border-width: 0.5px;
+        border-color: #4F3265;
+    }
+
+    #message-box h3 {
+        margin: 10px;
+        font-weight: 300;
+        position: fixed;
+        padding-left: 5px;
+    }
+
+    #send-icon {
+        font-size: 26px;
+        color: #4F3265;
+        padding-left: 710px;
+        padding-top: 6px;
+    }
+
+    #dropdown-arrow {
+        padding-top: 20px;
+    }
+
+    #main-channel {
+        background-color: #F5EAF9;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        background-position-x: 200px;
+    }
+}
