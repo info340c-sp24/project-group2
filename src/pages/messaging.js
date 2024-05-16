@@ -2,6 +2,32 @@ import React from 'react';
 
 function MessagingPage(props) {
   return (
+    <NavBar />
+  );
+}
+
+export default MessagingPage;
+
+const pagesArray = ['Homepage', 'Calendar', 'Messaging', 'Media'];
+
+export function NavBar() {
+    return (
+      <nav>
+          <div className="container">
+              <h1>Messaging</h1>
+          </div>
+          {/*<Link to="/" className="upper-left"> */}
+            <span className="material-icons" aria-label="Home">
+              home
+            </span>
+          {/* </Link> */}
+      </nav>
+    );
+}
+
+
+function jsxCode() {
+
     <>
       {/* Character set of the document */}
       <meta charSet="UTF-8" />
@@ -109,22 +135,4 @@ function MessagingPage(props) {
         </p>
       </footer>
     </>
-  );
-}
-
-export default MessagingPage;
-
-export function Navigation() {
-  return (
-    <nav>
-        <div className="container">
-          <h1>Messaging</h1>
-        </div>
-        {/*<Link to="/" className="upper-left">
-          <span className="material-icons" aria-label="Home">
-            home
-          </span>
-        </Link> */}
-    </nav>
-  )
 }
