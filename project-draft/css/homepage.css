@@ -1,6 +1,18 @@
 * {
     box-sizing: border-box;
-    font-family: "Raleway";
+}
+
+body {
+    font-family: 'Raleway', Helvetica, sans-serif;
+    color: #333;
+    background-color: #FEFCF9;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    font-family: 'Raleway', Helvetica, sans-serif;
 }
 
 nav {
@@ -9,44 +21,61 @@ nav {
     left: 0;
     width: 100%;
     height: 80px;
-    flex-wrap: wrap;
     background-color: #4F3265;
     border-bottom-left-radius: 200px;
     border-bottom-right-radius: 200px;
-}
-
-.upper-right {
-    position: absolute;
-    top: 9px;
-    right: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .material-icons {
     font-size: 60px;
-    color: white;
+    color: #FEFCF9;
+}
+
+.upper-left, .upper-right {
+    position: absolute;
+    top: 9px;
+}
+
+.upper-left {
+    left: 38px;
+}
+
+.upper-right {
+    right: 38px;
 }
 
 h1 {
-    text-align: center;
-    font-family: "Raleway", Helvetica, sans-serif;
     font-size: 37px;
     color: #FEFCF9;
     font-weight: 600;
-    margin-top: 15px;
+    margin-top: 20px;
+}
+
+main {
+    width: 70%;
+    margin-top: 140px;
+    margin-left: 40px;
+    padding: 20px;
+    background: #3f2850;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .purple-rectangle {
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     width: 340px;
-    height: 821px;
-    left: 71px;
-    top: 116px;
-    background-color: #FDF8FF;
-    border: 0.5px solid #AA8CBC;
+    height: 570px;
+    right: 40px; /* Adjusted position from the right */
+    top: 140px;
+    background-color: #cac1d0;
+    border: 0.5px solid #3c0b58;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap;
 }
 
 h2 {
@@ -63,7 +92,7 @@ h2 {
     margin-bottom: 10px; 
     padding: 10px; 
     background-color: #FFFFFF; 
-    border: 1px solid #E0E0E0; 
+    border: 0.5px solid #a28dab;
     border-radius: 5px; 
     margin-top: 15px;
     margin-left: 15px;
@@ -74,8 +103,8 @@ h2 {
     display: flex;
     flex-direction: row; 
     align-items: center;
-    justify-content: flex-end;
-    margin-top: 60px;
+    justify-content: space-evenly;
+    margin-bottom: 70px;
     margin-left: auto; 
     flex-wrap: wrap;
 }
@@ -97,7 +126,12 @@ h2 {
 }
 
 .flex-item.message {
-    width: 300px; 
+    width: 300px;
+    height: 340px;     
+}
+
+.flex-item.message img {
+    max-width: 100%;
 }
 
 .flex-item.media {
@@ -109,6 +143,12 @@ h2 {
     color: #333333; 
 }
 
-.flex-item a:hover {
-    color: #AA8CBC; 
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    background: #f2f2f2;
+    color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
