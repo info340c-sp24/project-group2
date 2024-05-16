@@ -1,6 +1,7 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MessagingPage from "./messaging";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import MessagingPage from './pages/messaging';
 
 function App(props) {
   return (
@@ -15,6 +16,21 @@ function App(props) {
       </div>
     </Router>
   );
+
+  function Navigation() {
+    return (
+      <nav>
+          <div className="container">
+            <h1>Messaging</h1>
+          </div>
+          <Link to="/" className="upper-left">
+            <span className="material-icons" aria-label="Home">
+              home
+            </span>
+          </Link>
+      </nav>
+    )
+  }
 }
 
 export default App;

@@ -28,17 +28,7 @@ function MessagingPage(props) {
       />
       <link rel="stylesheet" href="css/messaging.css" />
       <title>Messaging</title>
-      {/* Page header */}
-      <nav>
-        <div className="container">
-          <h1>Messaging</h1>
-        </div>
-        <a href="homepage.html" className="upper-left">
-          <span className="material-icons" aria-label="Home">
-            home
-          </span>
-        </a>
-      </nav>
+    
       {/* Main section of content */}
       <main>
         <div id="main-content">
