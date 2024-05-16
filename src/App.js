@@ -19,14 +19,13 @@ function App() {
   };
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/login" element={<Login {...loginProps} />} />
-        <Route path="/messaging" element={<MessagingPage />} />
-        <Route path="/media" element={<Media {...mediaProps} />} />
-        {/* You can add more routes as needed */}
-      </Routes>
-    </Router>
+    <div>
+      {/* <LoginPage /> */}
+      {/* <HomePage /> */}
+      {/* <CalendarPage /> */}
+      <MessagingPage />
+      {/* <MediaPage /> */}
+    </div>
   );
 }
 

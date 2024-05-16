@@ -219,7 +219,7 @@ h3 {
     }
 
     #message-box h3 {
-        
+        display: block;
         margin: 10px;
         font-weight: 300;
         position: fixed;
