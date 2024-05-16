@@ -1,36 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import MessagingPage from './pages/messaging';
+import NavBar from './components/NavBar';
+
 
 function App(props) {
   return (
     <Router>
-      <div>
-        <Switch>
+      <nav component={NavBar}>
+        <Routes>
           {/* <Route exact path="/" component={HomePage} /> */}
           <Route path="/messaging" component={MessagingPage} />
           {/* <Route path="/calendar" component={CalendarPage} /> */}
           {/* <Route path="/media" component={MediaPage} /> */}
-        </Switch>
-      </div>
+        </Routes>
+      </nav>
     </Router>
   );
-
-  function Navigation() {
-    return (
-      <nav>
-          <div className="container">
-            <h1>Messaging</h1>
-          </div>
-          <Link to="/" className="upper-left">
-            <span className="material-icons" aria-label="Home">
-              home
-            </span>
-          </Link>
-      </nav>
-    )
-  }
 }
+
 
 export default App;

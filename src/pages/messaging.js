@@ -113,3 +113,18 @@ function MessagingPage(props) {
 }
 
 export default MessagingPage;
+
+export function Navigation() {
+  return (
+    <nav>
+        <div className="container">
+          <h1>Messaging</h1>
+        </div>
+        {/*<Link to="/" className="upper-left">
+          <span className="material-icons" aria-label="Home">
+            home
+          </span>
+        </Link> */}
+    </nav>
+  )
+}
