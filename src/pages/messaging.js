@@ -2,32 +2,7 @@ import React from 'react';
 
 function MessagingPage(props) {
   return (
-      <>
-      {/* Character set of the document */}
-      <meta charSet="UTF-8" />
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no"
-      />
-      {/* Author of the page */}
-      <meta name="author" content="Netra Krishnan" />
-      {/* Description of the page */}
-      <meta
-        name="description"
-        content="Messaging page of RSO platform. Allows user to message individuals internally (within RSO) and externally
-          (with other RSOs and University staff)"
-      />
-      {/* Links */}
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-      />
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      />
-      <link rel="stylesheet" href="css/messaging.css" />
-      <title>Messaging</title>
+    <>
 
       <NavBar />
 
@@ -135,6 +110,32 @@ function jsxCode() {
 
     <>
     
+      {/* Character set of the document */}
+      <meta charSet="UTF-8" />
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+      {/* Author of the page */}
+      <meta name="author" content="Netra Krishnan" />
+      {/* Description of the page */}
+      <meta
+        name="description"
+        content="Messaging page of RSO platform. Allows user to message individuals internally (within RSO) and externally
+          (with other RSOs and University staff)"
+      />
+      {/* Links */}
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      />
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      />
+      <link rel="stylesheet" href="css/messaging.css" />
+      <title>Messaging</title>
+
       {/* Main section of content */}
       <main>
         <div id="main-content">
