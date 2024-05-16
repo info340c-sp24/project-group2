@@ -12,25 +12,6 @@ function MessagingPage() {
           <RightRect />
         </div>
       </main>
-
-      {/* Main section of content
-      <main>
-        <div id="main-content">
-          <LeftRect />
-            <div id="right-rect">
-              <div>
-                <h2>#main</h2>
-              </div>
-              <div id="message-box">
-                <h3>type a message</h3>
-                <span id="send-icon" className="material-icons" aria-label="Send">
-                  send
-                </span>
-              </div>
-            </div>
-        </div>
-      </main>
-      */}
     </>
   );
 }

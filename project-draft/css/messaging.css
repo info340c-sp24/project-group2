@@ -195,6 +195,7 @@ h3 {
     }
 
     #right-rect h2 {
+        display: block;
         margin: 15px;
         padding-bottom: 10px;
         font-weight: 500;
@@ -218,6 +219,7 @@ h3 {
     }
 
     #message-box h3 {
+        display: block;
         margin: 10px;
         font-weight: 300;
         position: fixed;

@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //import { Link } from 'react-router-dom';
 import MessagingPage from './pages/messaging';
-import { NavBar } from './pages/messaging.js';
 import './styles/messaging.css';
 
 
