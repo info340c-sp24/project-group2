@@ -8,16 +8,13 @@ import './styles/messaging.css';
 
 function App(props) {
   return (
-    <Router>
-      <NavBar>
-        <Routes>
-          {/* <Route exact path="/" component={HomePage} /> */}
-          <Route path="/messaging" component={MessagingPage} />
-          {/* <Route path="/calendar" component={CalendarPage} /> */}
-          {/* <Route path="/media" component={MediaPage} /> */}
-        </Routes>
-      </NavBar>
-    </Router>
+    <div>
+      {/* <HomePage /> */}
+      {/* LoginPage /> */}
+      {/* CalendarPage /> */}
+      <MessagingPage />
+      {/* MediaPage /> */}
+      </div>
   );
 }
 

@@ -1,12 +1,18 @@
 import React from 'react';
 
-function MessagingPage(props) {
+function MessagingPage() {
   return (
     <>
 
       <NavBar />
+      
+      <main>
+        <div id="main-content">
+          <LeftRect />
+        </div>
+      </main>
 
-      {/* Main section of content */}
+      {/* Main section of content
       <main>
         <div id="main-content">
           <LeftRect />
@@ -23,6 +29,7 @@ function MessagingPage(props) {
             </div>
         </div>
       </main>
+      */}
     </>
   );
 }
@@ -31,7 +38,7 @@ export default MessagingPage;
 
 const pagesArray = ['Homepage', 'Calendar', 'Messaging', 'Media'];
 
-export function NavBar() {
+function NavBar() {
     return (
       <nav>
           <div className="container">
@@ -46,7 +53,7 @@ export function NavBar() {
     );
 }
 
-export function LeftRect() {
+function LeftRect() {
   return (
     <div id="left-rect">
       <div id="channels">
@@ -104,6 +111,8 @@ export function LeftRect() {
     </div>
   );
 }
+
+
 
 
 function jsxCode() {
