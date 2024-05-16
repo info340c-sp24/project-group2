@@ -1,14 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import MessagingPage from "./messaging";
 
 function App(props) {
   return (
-    <div className="App">
-      <HomePage />
-      {/* <CalendarPage /> */}
-      {/* <MessagingPage /> */}
-      {/* <MediaPage /> */}
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          {/* <Route exact path="/" component={HomePage} /> */}
+          <Route path="/messaging" component={MessagingPage} />
+          {/* <Route path="/calendar" component={CalendarPage} /> */}
+          {/* <Route path="/media" component={MediaPage} /> */}
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
