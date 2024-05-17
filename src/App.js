@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MessagingPage from './pages/messaging';
 import './styles/messaging.css';
-import Login from './pages/login';
-import Media from './pages/media';
-//import './styles/login.css';
-//import './styles/media.css';
+
+import LoginPage from './pages/login';
+import MediaPage from './pages/media';
+import './styles/login.css';
+import './styles/media.css';
 
 function App(props) {
   return (
@@ -14,8 +14,8 @@ function App(props) {
         {/* <LoginPage /> */}
         {/* <HomePage /> */}
         {/* <CalendarPage /> */}
-        <MessagingPage />
-        {/* <MediaPage /> */}
+````````{/*<MessagingPage /> */}
+        <MediaPage />
       </div>
       <footer>
       <p>
@@ -23,6 +23,21 @@ function App(props) {
       </p>
       </footer>
     </>
+
+import LoginPage from './pages/login';
+import MediaPage from './pages/media';
+import './styles/login.css';
+import './styles/media.css';
+
+function App(props) {
+  return (
+    <div>
+      {/* LoginPage /> */}
+      {/* <HomePage /> */}
+      {/* <CalendarPage /> */}
+      {/* <MessagingPage /> */}
+      <MediaPage />
+    </div>
   );
 }
 
