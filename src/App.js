@@ -13,15 +13,15 @@ function App(props) {
         {/* <LoginPage /> */}
         {/* <HomePage /> */}
         {/* <CalendarPage /> */}
-        <MessagingPage />
-        {/* <MediaPage /> */}
+        {/*<MessagingPage /> */}
+        <MediaPage />
       </div>
       <footer>
       <p>
-        Copyright <span>©</span> 2024. All rights reserved.
+        Copyright <span>©</span> 2024 Group 2. All rights reserved.
       </p>
       </footer>
-  </>
+    </>
   );
 }
 
