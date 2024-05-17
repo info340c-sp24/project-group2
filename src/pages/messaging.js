@@ -3,7 +3,6 @@ import React from 'react';
 function MessagingPage() {
   return (
     <>
-
       <NavBar />
       
       <main>
@@ -44,7 +43,8 @@ function LeftRect() {
             <span
               id="dropdown-arrow"
               className="material-icons"
-              aria-label="Collapse-channels">
+              aria-label="Collapse-channels"
+            >
               arrow_drop_down
             </span>
           </div>
@@ -62,7 +62,8 @@ function LeftRect() {
             <span
               id="dropdown-arrow"
               className="material-icons"
-              aria-label="Collapse-dms">
+              aria-label="Collapse-dms"
+            >
               arrow_drop_down
             </span>
           </div>
@@ -78,7 +79,8 @@ function LeftRect() {
             <span
               id="dropdown-arrow"
               className="material-icons"
-              aria-label="Collapse-external">
+              aria-label="Collapse-external"
+            >
               arrow_drop_down
             </span>
           </div>
