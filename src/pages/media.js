@@ -52,7 +52,12 @@ function RecentUploads({ recentUploads }) {
             </div>
           ))
         ) : (
-          <p>No recent uploads.</p>
+          <>
+            <div className="folder"><i className="material-icons">folder</i><h3>Week 1</h3></div>
+            <div className="folder"><i className="material-icons">folder</i><h3>Week 2</h3></div>
+            <div className="folder"><i className="material-icons">folder</i><h3>Week 3</h3></div>
+            <div className="folder"><i className="material-icons">folder</i><h3>Week 4</h3></div>
+          </>
         )}
       </div>
     </section>
@@ -72,7 +77,12 @@ function OlderFiles({ olderFiles }) {
             </div>
           ))
         ) : (
-          <p>No older files.</p>
+          <>
+            <div className="folder"><i className="material-icons">folder</i><h3>Winter 2023</h3></div>
+            <div className="folder"><i className="material-icons">folder</i><h3>Spring 2023</h3></div>
+            <div className="folder"><i className="material-icons">folder</i><h3>Fall 2023</h3></div>
+            <div className="folder"><i className="material-icons">folder</i><h3>Winter 2024</h3></div>
+          </>
         )}
       </div>
     </section>
@@ -86,8 +96,4 @@ function Footer() {
     </footer>
   );
 }
-
-
-
-
 
