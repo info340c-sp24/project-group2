@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/media.css';
 
-function Media({ recentUploads = [], olderFiles = [] }) {
+function MediaPage({ recentUploads = [], olderFiles = [] }) {
   return (
     <div>
       <Header />
@@ -15,7 +15,7 @@ function Media({ recentUploads = [], olderFiles = [] }) {
   );
 }
 
-export default Media;
+export default MediaPage;
 
 function Header() {
   return (
