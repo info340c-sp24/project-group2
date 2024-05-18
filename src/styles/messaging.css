@@ -4,7 +4,7 @@
 }
 
 /* code from centralized css stylesheet */
-body {
+#body {
     font-family: 'Raleway', sans-serif;
     background-color: #FEFCF9;
     margin: 0;
@@ -12,7 +12,7 @@ body {
     font-size: 16px;
 }
 
-nav {
+#header {
     position: fixed;
     top: 0;
     left: 0;
