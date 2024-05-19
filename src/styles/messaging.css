@@ -4,7 +4,7 @@
 }
 
 /* code from centralized css stylesheet */
-#body {
+body {
     font-family: 'Raleway', sans-serif;
     background-color: #FEFCF9;
     margin: 0;
@@ -12,7 +12,7 @@
     font-size: 16px;
 }
 
-#header {
+nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -132,7 +132,7 @@ nav a {
     text-decoration: none;
 }
 
-h2 {
+#channels h2 {
     font-size: 22px;
     font-weight: 550;
     color: #4F3265;
@@ -140,7 +140,7 @@ h2 {
     margin-left: 10px;
 }
 
-h3 {
+#channels h3 {
     font-size: 18px;
     font-weight: 400;
     color: #4F3265;
@@ -149,7 +149,7 @@ h3 {
     margin-left: 10px;
 }
 
-#right-rect h2 {
+#current-channel {
     display: none;
 }
 
@@ -194,11 +194,12 @@ h3 {
         border-bottom-right-radius: 10px;
     }
 
-    #right-rect h2 {
+    #current-channel {
         display: flex;
         margin: 15px;
         padding-bottom: 10px;
         font-weight: 500;
+        color: #4F3265;
         border-bottom: 0.5px solid #AA8CBC;
     }
 

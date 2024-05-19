@@ -15,8 +15,8 @@ import './styles/media.css';
 import CalendarPage from './pages/calendar';
 import './styles/calendar.css'
 
+
 function App() {
-  /*
   const loginProps = {
     title: 'RSO Communication Platform',
     subtitle: 'Please login with your UW Net ID',
@@ -26,16 +26,15 @@ function App() {
     recentUploads: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
     olderFiles: ['Winter 2023', 'Spring 2023', 'Fall 2023', 'Winter 2024'],
   };
-  */
 
   return (
     <>
       <div>
-        <LoginPage />
-        <HomePage />
-        <CalendarPage />
-        <MessagingPage />
-        <MediaPage />
+        {/* <LoginPage /> */}
+        {/* <HomePage /> */}
+        {/* <CalendarPage /> */}
+        {/* <MessagingPage /> */}
+        {/* <MediaPage /> */}
       </div>
       <footer>
       <p>Copyright <span>&copy;</span> 2024. All rights reserved.</p>
