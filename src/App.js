@@ -28,8 +28,8 @@ function App() {
     <>
       <div>
         {/* <LoginPage /> */}
-        {/* <HomePage /> */}
-        {/* <CalendarPage /> */}
+        {<HomePage />}
+        {/* <Calendar /> */}
         {/* <MessagingPage /> */}
         {/* <MediaPage /> */}
       </div>
