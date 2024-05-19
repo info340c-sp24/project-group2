@@ -37,7 +37,7 @@ function App() {
         {/* <MediaPage /> */}
       </div>
       <footer>
-      <p>Copyright <span>&copy;</span> 2024 Netra Krishnan. All rights reserved.</p>
+      <p>Copyright <span>&copy;</span> 2024. All rights reserved.</p>
       </footer>
      </>
   );
