@@ -51,7 +51,7 @@ h1 {
     font-size: 37px;
     color: #FEFCF9;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 main {
@@ -61,7 +61,7 @@ main {
     padding: 20px;
     background: #3f2850;
     border-radius: 10px;
-    position: relative;
+    position: fixed;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
