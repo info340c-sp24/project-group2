@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/login.css';
 
-function Login({ title, subtitle }) {
+function LoginPage({ title, subtitle }) {
   return (
     <div>
       <Header title={title} />
@@ -15,7 +15,7 @@ function Login({ title, subtitle }) {
   );
 }
 
-export default Login;
+export default LoginPage;
 
 function Header({ title }) {
   return (
