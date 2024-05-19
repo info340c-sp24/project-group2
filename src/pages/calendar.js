@@ -33,7 +33,7 @@ function Footer() {
     return <footer></footer>;
 }
 
-function Calendar() {
+function CalendarPage() {
     return (
         <>
             <NavBar title="Calendar" homeLinkUrl="homepage.html" />
@@ -43,4 +43,4 @@ function Calendar() {
     );
 }
 
-export default Calendar;
+export default CalendarPage;

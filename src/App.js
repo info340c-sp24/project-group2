@@ -13,6 +13,9 @@ import './styles/login.css';
 import Media from './pages/media';
 import './styles/media.css';
 
+import CalendarPage from './pages/calendar';
+import './styles/calendar.css'
+
 function App() {
   const loginProps = {
     title: 'RSO Communication Platform',
@@ -28,8 +31,8 @@ function App() {
     <>
       <div>
         {/* <LoginPage /> */}
-        {<HomePage />}
-        {/* <Calendar /> */}
+        {/* <HomePage /> */}
+        {/* <CalendarPage /> */}
         {/* <MessagingPage /> */}
         {/* <MediaPage /> */}
       </div>
