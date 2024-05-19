@@ -7,10 +7,10 @@ import './styles/messaging.css';
 import HomePage from './pages/homepage';
 import './styles/homepage.css';
 
-import Login from './pages/login';
+import LoginPage from './pages/login';
 import './styles/login.css';
 
-import Media from './pages/media';
+import MediaPage from './pages/media';
 import './styles/media.css';
 
 import CalendarPage from './pages/calendar';
@@ -31,15 +31,13 @@ function App() {
     <>
       <div>
         {/* <LoginPage /> */}
-        {/* <HomePage /> */}
+        <HomePage />
         {/* <CalendarPage /> */}
         {/* <MessagingPage /> */}
         {/* <MediaPage /> */}
       </div>
       <footer>
-      <p>
-        Copyright <span>©</span> 2024 Group 2. All rights reserved.
-      </p>
+      <p>Copyright <span>&copy;</span> 2024 Netra Krishnan. All rights reserved.</p>
       </footer>
      </>
   );
