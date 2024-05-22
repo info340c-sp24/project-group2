@@ -31,7 +31,7 @@ function App() {
     <>
       <div>
         {/* <LoginPage /> */}
-        {/* <HomePage /> */}
+        <HomePage />
         {/* <CalendarPage /> */}
         {/* <MessagingPage /> */}
         {/* <MediaPage /> */}

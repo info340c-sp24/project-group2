@@ -71,6 +71,7 @@ nav {
 #main {
     width: 70%;
     margin-top: 140px;
+    margin-bottom: 130px;
     margin-left: 40px;
     padding: 44px;
     background: #3f2850;
@@ -97,6 +98,7 @@ nav {
     list-style-type: none; 
     padding: 0; 
 }
+
 
 .purple-rectangle li {
     margin-bottom: 10px; 
