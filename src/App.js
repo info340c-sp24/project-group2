@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <div>
-        {/* <LoginPage /> */}
+        <LoginPage />
         {/* <HomePage /> */}
         {/* <CalendarPage /> */}
         {/* <MessagingPage /> */}
