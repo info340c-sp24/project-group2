@@ -30,9 +30,9 @@ function App() {
   return (
     <>
       <div>
-        <LoginPage />
+        {/* <LoginPage /> */}
         {/* <HomePage /> */}
-        {/* <CalendarPage /> */}
+        { <CalendarPage />}
         {/* <MessagingPage /> */}
         {/* <MediaPage /> */}
       </div>

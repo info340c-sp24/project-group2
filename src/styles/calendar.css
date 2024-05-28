@@ -64,7 +64,7 @@ nav a {
 
 /* Centralize the "Google Calendar API Connected" section */
 .rectangle-2 {
-    width: 60%; /* Adjust width as needed */
+    width: 60%;
     height: 400px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -73,8 +73,8 @@ nav a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 14% auto; /* Center horizontally and adjust vertical spacing */
-    padding: 20px; /* Add padding for better appearance */
+    margin: 20% auto;
+    padding: 20px;
 }
 
 /* Media Queries */
@@ -105,4 +105,21 @@ nav a {
         width: 80%;
         height: 300px;
     }
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
+}
+
+.section-link {
+    text-decoration: none;
+}
+
+.section-link:hover {
+    opacity: 0.8;
+}
+
+.section-link > div {
+    cursor: pointer;
 }
