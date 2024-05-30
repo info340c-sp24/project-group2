@@ -1,0 +1,50 @@
+[
+    {
+        "userId": "netra",
+        "userName": "Netra",
+        "userImg": "../img/netra.JPG",
+        "text": "Hello",
+        "timestamp": 1320161040000,
+        "channel": "#main"
+    },
+    {
+        "userId": "pournami",
+        "userName": "Pournami",
+        "userImg": "/img/pournami.JPG",
+        "text": "Hi!",
+        "timestamp": 1320161760000,
+        "channel": "#main"
+    },
+    {
+        "userId": "niranjanaa",
+        "userName": "Niranjanaa",
+        "userImg": "/img/noUser.JPG",
+        "text": "hiiiiii",
+        "timestamp": 1320162060000,
+        "channel": "#main"
+    },
+    {
+        "userId": "arnav",
+        "userName": "Arnav",
+        "userImg": "/img/noUser.JPG",
+        "text": "hi",
+        "timestamp": 1320162120000,
+        "channel": "#main"
+    },
+    {
+        "userId": "user2",
+        "userName": "user2",
+        "userImg": "/img/noUser.JPG",
+        "text": "When is practice?",
+        "timestamp": 1320224280000,
+        "channel": "#user2, user3"
+    },
+    {
+        "userId": "user3",
+        "userName": "user3",
+        "userImg": "/img/noUser.JPG",
+        "text": "its on the calendar!",
+        "timestamp": 1320224640000,
+        "channel": "#user2, user3"
+    }
+  ]
