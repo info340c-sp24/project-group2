@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import MessagingPage from './pages/messaging';
 import './styles/messaging.css';
@@ -13,8 +14,7 @@ import MediaPage from './pages/media';
 import './styles/media.css';
 
 import CalendarPage from './pages/calendar';
-import './styles/calendar.css'
-
+import './styles/calendar.css';
 
 function App() {
   const loginProps = {
@@ -35,6 +35,7 @@ function App() {
         {/* <CalendarPage /> */}
         {/* <MessagingPage /> */}
         {/* <MediaPage /> */}
+        <MediaPage /> 
       </div>
       <footer>
       <p>Copyright <span>&copy;</span> 2024. All rights reserved.</p>
