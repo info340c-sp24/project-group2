@@ -12,18 +12,23 @@ function NavBar({ title, homeLinkUrl }) {
     );
 }
 
-function Section({ title, className }) {
+function Section({ title, className, link }) {
     return (
-        <div className={className}>
-            <h2>{title}</h2>
-        </div>
+        <a href={link} className="section-link" target='_blank' rel='noopener noreferrer'>
+            <div className={className}>
+                <h2>{title}</h2>
+            </div>
+        </a>
     );
 }
 
 function Main() {
+    const calendlyLink = "https://calendar.google.com/calendar/u/0?cid=YWsxNDI5QHV3LmVkdQ";
+
     return (
         <main>
-            <Section title="Calendly" className="calendly" />
+            <Section title="Google Calendar" className="calendly" link={calendlyLink} />
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&bgcolor=%23ffffff&src=YWsxNDI5QHV3LmVkdQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%230B8043" style={{border:'solid 1px #777'}} width="800" height="600" frameborder="0" scrolling="no"></iframe>
             <Section title="Google Calendar API Connected" className="rectangle-2" />
         </main>
     );

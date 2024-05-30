@@ -33,7 +33,7 @@ function App() {
         {/* <LoginPage /> */}
         {/* <HomePage /> */}
         {/* <CalendarPage /> */}
-        <MessagingPage />
+        {/* <MessagingPage /> */}
         {/* <MediaPage /> */}
       </div>
       <footer>

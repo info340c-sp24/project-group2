@@ -1,13 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { auth } from '../firebase';
 import '../styles/login.css';
 
-function LoginPage({ title, subtitle }) {
+function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      // Redirect to homepage or any other page after successful login
+      window.location.href = '/homepage';
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <div>
-      <Header title={title} />
+      <Header />
       <main>
         <div className="login-container">
-          <LoginForm />
+          <form onSubmit={handleLogin}>
+            <label htmlFor="email">UW Net ID:</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <label htmlFor="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+
+            {error && <p className="error">{error}</p>}
+
+            <button type="submit" className="login-btn">Login</button>
+          </form>
         </div>
       </main>
       <Footer />
@@ -17,27 +57,13 @@ function LoginPage({ title, subtitle }) {
 
 export default LoginPage;
 
-function Header({ title }) {
+function Header() {
   return (
     <header>
       <div className="header-container">
-        <h1>{title}</h1>
+        <h1>RSO Communication Platform</h1>
       </div>
     </header>
-  );
-}
-
-function LoginForm() {
-  return (
-    <form action="/homepage" method="POST">
-      <label htmlFor="username">UW Net ID:</label>
-      <input type="text" id="username" name="username" required />
-
-      <label htmlFor="password">Password:</label>
-      <input type="password" id="password" name="password" required />
-
-      <button type="submit" className="login-btn">Login</button>
-    </form>
   );
 }
 
@@ -48,6 +74,7 @@ function Footer() {
     </footer>
   );
 }
+
 
 
 
