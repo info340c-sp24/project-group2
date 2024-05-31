@@ -1,13 +1,14 @@
 import React from 'react';
 import '../styles/calendar.css';
+import { NavLink } from 'react-router-dom';
 
-function NavBar({ title, homeLinkUrl }) {
+function NavBar({ title }) {
     return (
         <nav>
             <div className="container">
                 <h1>{title}</h1>
             </div>
-            <a href={homeLinkUrl} className="upper-left"><span className="material-icons" aria-label="Home">home</span></a>
+            <NavLink to="/homepage" className="upper-left" aria-label="Go to homepage"><span className="material-icons" aria-label="Home">home</span></NavLink>
         </nav>
     );
 }
@@ -41,7 +42,7 @@ function Footer() {
 function CalendarPage() {
     return (
         <>
-            <NavBar title="Calendar" homeLinkUrl="homepage.html" />
+            <NavBar title="Calendar" />
             <Main />
             <Footer />
         </>

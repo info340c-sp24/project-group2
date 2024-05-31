@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import CHATS from '../data/chats.json';
+import { NavLink } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 function MessagingPage() {
@@ -162,7 +163,7 @@ function MessagingPage() {
           <strong>{userName}</strong>
         </div>
         <p>{text}</p>
-        <button onClick={handleClick} className="btn btn-secondary" alt="Like">
+        <button id="likeBtn" onClick={handleClick} className="btn btn-secondary" alt="Like">
           <span id="like-btn" className="material-icons" style={{color:color}} aria-label="Like">
             favorite
           </span>
@@ -179,11 +180,11 @@ function MessagingPage() {
         <div className="container">
           <h1>Messaging</h1>
         </div>
-        <a href="homepage.html" className="upper-left">
+        <NavLink to="homepage" className="upper-left" aria-label="Go to homepage">
           <span className="material-icons" aria-label="Home">
             home
           </span>
-        </a>
+        </NavLink>
       </nav>
       {/* Main section of content */}
       <div id="messaging-main">

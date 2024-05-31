@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import MessagingPage from './pages/messaging';
 import './styles/messaging.css';
@@ -30,6 +31,15 @@ function App() {
   return (
     <>
       <div>
+        <Routes>
+          <Route path="/*" element={<Navigate to="/homepage" />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="homepage" element={<HomePage />} />
+          <Route path="calendar" element={<CalendarPage />} />
+          <Route path="messaging" element={<MessagingPage />} />
+          <Route path="media" element={<MediaPage />} />
+
+        </Routes>
         {/* <LoginPage /> */}
         {/* <HomePage /> */}
         {/* <CalendarPage /> */}

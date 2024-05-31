@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/media.css';
+import { NavLink } from 'react-router-dom';
 
 function MediaPage({ recentUploads = [], olderFiles = [] }) {
   return (
@@ -20,9 +21,9 @@ export default MediaPage;
 function Header() {
   return (
     <header>
-      <a href="/homepage" className="home-icon" aria-label="Go to homepage">
+      <NavLink to="/homepage" className="home-icon" aria-label="Go to homepage">
         <span className="material-icons home-icon">home</span>
-      </a>
+      </NavLink>
       <h1>Media Upload</h1>
     </header>
   );
