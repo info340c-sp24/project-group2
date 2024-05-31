@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 function HomePage() {
     return (
@@ -17,21 +18,21 @@ function HomePage() {
                         <div className="flex-item calendar">
                             <img src={`img/calendar.png`} alt="Calendar Image" />
                             <h2>
-                                <a href="calendar.html">Calendar</a>
+                                <NavLink to="/calendar">Calendar</NavLink>
                             </h2>
                         </div>
 
                         <div className="flex-item message">
                             <img src={`img/messages.jpg`} alt="Messaging" />
                             <h2>
-                                <a href="messaging.html">Messaging</a>
+                                <NavLink to="/messaging">Messaging</NavLink>
                             </h2>
                         </div>
 
                         <div className="flex-item media">
                             <img src={`img/media.png`} alt="Media Upload" />
                             <h2>
-                                <a href="media.html">Media</a>
+                                <NavLink to="/media">Media</NavLink>
                             </h2>
                         </div>
                     </div>
