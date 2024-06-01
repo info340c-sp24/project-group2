@@ -19,6 +19,9 @@ header {
     position: relative;
     border-radius: 0 0 200px 200px;
     height: 80px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header-container {
@@ -47,12 +50,15 @@ h1 {
     flex-direction: column;
 }
 
-input[type="text"],
+input[type="email"],
 input[type="password"] {
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
+    display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .login-btn {
@@ -66,6 +72,15 @@ input[type="password"] {
     margin-top: 20px;
 }
 
+.login-btn:hover {
+    background-color: #45a049;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
 footer {
     text-align: center;
     padding: 20px 10px;
@@ -75,5 +90,7 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
 
 

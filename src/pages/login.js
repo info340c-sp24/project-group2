@@ -11,12 +11,10 @@ function LoginPage({ title, subtitle }) {
   const handleLogin = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log('Logged in as:', user);
+      .then(() => {
+        console.log('Logged in successfully');
         setError(''); // Clear any previous error
-        // Redirect to homepage or other page
-        window.location.href = '/homepage'; // Change this to your desired route
+        window.location.href = '/homepage'; // Redirect to homepage or other page
       })
       .catch((error) => {
         console.error('Error logging in:', error);
@@ -64,6 +62,7 @@ function LoginPage({ title, subtitle }) {
 }
 
 export default LoginPage;
+
 
 
 
