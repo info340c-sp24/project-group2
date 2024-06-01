@@ -5,24 +5,15 @@ import { collection, addDoc, getDocs, query, orderBy } from 'firebase/firestore'
 import '../styles/media.css';
 import { NavLink } from 'react-router-dom';
 
-function MediaPage({ recentUploads = [], olderFiles = [] }) {
+function MediaPage() {
   const [uploadFile, setUploadFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [newFolderName, setNewFolderName] = useState('');
 
   useEffect(() => {
-    const fetchFiles = async () => {
-      const q = query(collection(db, 'uploads'), orderBy('timestamp', 'desc'));
-      const querySnapshot = await getDocs(q);
-      const files = [];
-      querySnapshot.forEach((doc) => {
-        files.push({ id: doc.id, ...doc.data() });
-      });
-      setUploadedFiles(files);
-    };
-
-    fetchFiles();
+    refreshFiles();
   }, []);
 
   const handleUpload = (e) => {
@@ -47,19 +38,36 @@ function MediaPage({ recentUploads = [], olderFiles = [] }) {
           name: uploadFile.name,
           url: downloadURL,
           timestamp: new Date(),
+          type: 'file'
         });
         setUploadFile(null);
         setUploadProgress(0);
-        // Refresh file list
-        const q = query(collection(db, 'uploads'), orderBy('timestamp', 'desc'));
-        const querySnapshot = await getDocs(q);
-        const files = [];
-        querySnapshot.forEach((doc) => {
-          files.push({ id: doc.id, ...doc.data() });
-        });
-        setUploadedFiles(files);
+        refreshFiles();
       }
     );
+  };
+
+  const handleCreateFolder = async (e) => {
+    e.preventDefault();
+    if (!newFolderName) return;
+
+    await addDoc(collection(db, 'uploads'), {
+      name: newFolderName,
+      timestamp: new Date(),
+      type: 'folder'
+    });
+    setNewFolderName('');
+    refreshFiles();
+  };
+
+  const refreshFiles = async () => {
+    const q = query(collection(db, 'uploads'), orderBy('timestamp', 'desc'));
+    const querySnapshot = await getDocs(q);
+    const files = [];
+    querySnapshot.forEach((doc) => {
+      files.push({ id: doc.id, ...doc.data() });
+    });
+    setUploadedFiles(files);
   };
 
   const filteredFiles = uploadedFiles.filter((file) =>
@@ -75,6 +83,11 @@ function MediaPage({ recentUploads = [], olderFiles = [] }) {
           setUploadFile={setUploadFile}
           handleUpload={handleUpload}
           uploadProgress={uploadProgress}
+        />
+        <CreateFolderForm 
+          newFolderName={newFolderName}
+          setNewFolderName={setNewFolderName}
+          handleCreateFolder={handleCreateFolder}
         />
         <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <FileList files={filteredFiles} />
@@ -120,6 +133,20 @@ function UploadForm({ uploadFile, setUploadFile, handleUpload, uploadProgress })
   );
 }
 
+function CreateFolderForm({ newFolderName, setNewFolderName, handleCreateFolder }) {
+  return (
+    <section className="create-folder-form">
+      <input
+        type="text"
+        placeholder="New Folder Name"
+        value={newFolderName}
+        onChange={(e) => setNewFolderName(e.target.value)}
+      />
+      <button onClick={handleCreateFolder} className="create-folder-btn">Create Folder</button>
+    </section>
+  );
+}
+
 function SearchBar({ searchTerm, setSearchTerm }) {
   return (
     <section className="search-bar">
@@ -141,7 +168,9 @@ function FileList({ files }) {
         {files.length > 0 ? (
           files.map((file, index) => (
             <div className="folder" key={index}>
-              <i className="material-icons">folder</i>
+              <i className="material-icons">
+                {file.type === 'folder' ? 'folder' : 'insert_drive_file'}
+              </i>
               <h3>{file.name}</h3>
             </div>
           ))
@@ -160,6 +189,12 @@ function Footer() {
     </footer>
   );
 }
+
+
+
+
+
+
 
 
 
