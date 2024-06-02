@@ -26,7 +26,7 @@ function LoginPage({ title, subtitle }) {
     <div>
       <header>
         <div className="header-container">
-          <h1>{title}</h1>
+          <h1>RSO Communication Platform</h1>
           <p>{subtitle}</p>
         </div>
       </header>

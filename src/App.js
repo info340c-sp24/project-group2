@@ -26,11 +26,7 @@ function App() {
   const handleSignOut = () => {
     setUser(null);
   };
-
-  const loginProps = {
-    title: 'RSO Management Platform',
-  };
-
+  
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
   };
@@ -39,7 +35,6 @@ function App() {
     <>
       <div className="App">
         <nav>
-          <h1>RSO Communication Platform</h1>
           <ProfilePopUp user={user} onSignOut={handleSignOut} isOpen={isProfileOpen} toggleProfile={toggleProfile} />
         </nav>
         <Routes>
