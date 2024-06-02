@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { storage, db } from '../firebaseConfig';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { collection, addDoc, getDocs, query, orderBy } from 'firebase/firestore';
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
+import { collection, addDoc, getDocs, query, orderBy, deleteDoc, doc } from 'firebase/firestore';
 import '../styles/media.css';
 import { NavLink } from 'react-router-dom';
 
@@ -62,6 +62,18 @@ function MediaPage() {
     );
   };
 
+  const handleDelete = async (file) => {
+    const fileRef = ref(storage, `uploads/${file.name}`);
+    try {
+      await deleteObject(fileRef);
+      await deleteDoc(doc(db, 'uploads', file.id));
+      setUploadedFiles(uploadedFiles.filter((item) => item.id !== file.id));
+      console.log(`File ${file.name} deleted successfully`);
+    } catch (error) {
+      console.error('Error deleting file:', error);
+    }
+  };
+
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -71,7 +83,7 @@ function MediaPage() {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <div>
+    <div className="media-container">
       <Header />
       <main>
         <UploadForm 
@@ -81,7 +93,7 @@ function MediaPage() {
           uploadProgress={uploadProgress}
         />
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-        <FileList files={filteredFiles} />
+        <FileList files={filteredFiles} handleDelete={handleDelete} />
       </main>
       <Footer />
     </div>
@@ -137,7 +149,7 @@ function SearchBar({ searchTerm, handleSearch }) {
   );
 }
 
-function FileList({ files }) {
+function FileList({ files, handleDelete }) {
   return (
     <section className="file-list">
       <h2>Files</h2>
@@ -150,6 +162,7 @@ function FileList({ files }) {
               <a href={file.url} target="_blank" rel="noopener noreferrer">
                 View File
               </a>
+              <button onClick={() => handleDelete(file)}>Delete</button>
             </div>
           ))
         ) : (
