@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/profilepopup.css';
-import { signOut } from 'firebase/auth';
 
 const ProfilePopUp = ({ user, isOpen, onClose, onSignOut }) => {
     const navigate = useNavigate();
