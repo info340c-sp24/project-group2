@@ -161,6 +161,12 @@ nav {
     color: #333333;
 }
 
+.homepage-container {
+    overflow-y: auto;
+    max-height: calc(100vh - 100px); /* Adjust according to your header and footer height */
+    padding: 20px;
+}
+
 footer {
     text-align: center;
     padding: 20px 10px;

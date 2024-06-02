@@ -10,10 +10,19 @@ function MediaPage() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [newFolderName, setNewFolderName] = useState('');
 
   useEffect(() => {
-    refreshFiles();
+    const fetchFiles = async () => {
+      const q = query(collection(db, 'uploads'), orderBy('timestamp', 'desc'));
+      const querySnapshot = await getDocs(q);
+      const files = [];
+      querySnapshot.forEach((doc) => {
+        files.push({ id: doc.id, ...doc.data() });
+      });
+      setUploadedFiles(files);
+    };
+
+    fetchFiles();
   }, []);
 
   const handleUpload = (e) => {
@@ -38,41 +47,28 @@ function MediaPage() {
           name: uploadFile.name,
           url: downloadURL,
           timestamp: new Date(),
-          type: 'file'
         });
         setUploadFile(null);
         setUploadProgress(0);
-        refreshFiles();
+        // Refresh file list
+        const q = query(collection(db, 'uploads'), orderBy('timestamp', 'desc'));
+        const querySnapshot = await getDocs(q);
+        const files = [];
+        querySnapshot.forEach((doc) => {
+          files.push({ id: doc.id, ...doc.data() });
+        });
+        setUploadedFiles(files);
       }
     );
   };
 
-  const handleCreateFolder = async (e) => {
-    e.preventDefault();
-    if (!newFolderName) return;
-
-    await addDoc(collection(db, 'uploads'), {
-      name: newFolderName,
-      timestamp: new Date(),
-      type: 'folder'
-    });
-    setNewFolderName('');
-    refreshFiles();
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
   };
 
-  const refreshFiles = async () => {
-    const q = query(collection(db, 'uploads'), orderBy('timestamp', 'desc'));
-    const querySnapshot = await getDocs(q);
-    const files = [];
-    querySnapshot.forEach((doc) => {
-      files.push({ id: doc.id, ...doc.data() });
-    });
-    setUploadedFiles(files);
-  };
-
-  const filteredFiles = uploadedFiles.filter((file) =>
-    file.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredFiles = uploadedFiles
+    .filter((file) => file.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div>
@@ -84,12 +80,7 @@ function MediaPage() {
           handleUpload={handleUpload}
           uploadProgress={uploadProgress}
         />
-        <CreateFolderForm 
-          newFolderName={newFolderName}
-          setNewFolderName={setNewFolderName}
-          handleCreateFolder={handleCreateFolder}
-        />
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
         <FileList files={filteredFiles} />
       </main>
       <Footer />
@@ -133,28 +124,14 @@ function UploadForm({ uploadFile, setUploadFile, handleUpload, uploadProgress })
   );
 }
 
-function CreateFolderForm({ newFolderName, setNewFolderName, handleCreateFolder }) {
-  return (
-    <section className="create-folder-form">
-      <input
-        type="text"
-        placeholder="New Folder Name"
-        value={newFolderName}
-        onChange={(e) => setNewFolderName(e.target.value)}
-      />
-      <button onClick={handleCreateFolder} className="create-folder-btn">Create Folder</button>
-    </section>
-  );
-}
-
-function SearchBar({ searchTerm, setSearchTerm }) {
+function SearchBar({ searchTerm, handleSearch }) {
   return (
     <section className="search-bar">
       <input
         type="text"
         placeholder="Search files"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={handleSearch}
       />
     </section>
   );
@@ -168,10 +145,11 @@ function FileList({ files }) {
         {files.length > 0 ? (
           files.map((file, index) => (
             <div className="folder" key={index}>
-              <i className="material-icons">
-                {file.type === 'folder' ? 'folder' : 'insert_drive_file'}
-              </i>
+              <i className="material-icons">insert_drive_file</i>
               <h3>{file.name}</h3>
+              <a href={file.url} target="_blank" rel="noopener noreferrer">
+                View File
+              </a>
             </div>
           ))
         ) : (
@@ -189,6 +167,9 @@ function Footer() {
     </footer>
   );
 }
+
+
+
 
 
 
