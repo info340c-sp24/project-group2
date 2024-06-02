@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import CHATS from '../data/chats.json';
 import { NavLink } from 'react-router-dom';
-import Dropdown from 'react-bootstrap/Dropdown';
+//import Dropdown from 'react-bootstrap/Dropdown';
 
 function MessagingPage() {
 
@@ -13,6 +13,9 @@ function MessagingPage() {
     setCurrentUser(newUser);
   }
   */
+  const channel_names = ["#main", "#exec", "#finance", "#social", "#random"];
+  const dm_names = ["#user2", "#user3", "#user2, user3"];
+  const external_names = ["#RSO15", "#RSO2", "#HUB Activities"];
 
   const [currentChannel, setCurrentChannel] = useState('#main');
 
@@ -20,66 +23,124 @@ function MessagingPage() {
     setCurrentChannel(newChannel);
   }
 
-  const channel_names = ["#main", "#exec", "#finance", "#social", "#random"];
-  const channelsArray = channel_names.map((channel_name) => {
-    return (
-      <div>
-        <h3 key={channel_name}><a className="channel-names" href={"/" + channel_name}>{channel_name}</a></h3>
-      </div>
-    )
-  });
-
-  const dm_names = ["#user2", "#user3", "#user2, user3"];
-  const dmArray = dm_names.map((dm_name) => {
-    return (
-      <div>
-        <h3 key={dm_name}><a className="channel-names" href={"/" + dm_name}>{dm_name}</a></h3>
-      </div>
-    )
-  });
-
-  const external_names = ["#RSO15", "#RSO2", "#HUB Activities"];
-  const externalArray = external_names.map((external_name) => {
-    return (
-      <div>
-        <h3 key={external_name}><a className="channel-names" href={"/" + external_name}>{external_name}</a></h3>
-      </div>
-    )
-  });
-
   function ChannelList(props) {
-    const { channelNames, currentChannel, changeChannelFunction } = props;
+    const { channel_names, currentChannel, changeChannelFunction } = props;
     
     const handleClick = (event) => {
       event.preventDefault();
-      const linkName = event.target.name;
-      console.log("Clicked on", linkName);
+      const linkName = event.target.textContent;
+      console.log("Clicked on" + linkName);
       changeChannelFunction(linkName);
     }
+
+    const channelArray = channel_names.map((channelNameString) => {
+      let classListString = "px-2";
+      if(channelNameString === currentChannel) { //on current channel
+        classListString += " bg-warning";
+      }
+  
+      return (
+        <div className={classListString} key={channelNameString}>
+          <h3 key={channelNameString}><a className='channel-names' href={"/" + channelNameString} onClick={handleClick}>{channelNameString}</a></h3>
+        </div>
+      );
+    })
+  
+    return (
+      <div>
+        {channelArray}
+      </div>
+    )
   }
 
+  function DmList(props) {
+    const { dm_names, currentChannel, changeChannelFunction } = props;
+    
+    const handleClick = (event) => {
+      event.preventDefault();
+      const linkName = event.target.textContent;
+      console.log("Clicked on" + linkName);
+      changeChannelFunction(linkName);
+    }
+
+    const dmArray = dm_names.map((dmNameString) => {
+      let classListString = "px-2";
+      if(dmNameString === currentChannel) { //on current channel
+        classListString += " bg-warning";
+      }
+  
+      return (
+        <div className={classListString} key={dmNameString}>
+          <h3 key={dmNameString}><a className='channel-names' href={"/" + dmNameString} onClick={handleClick}>{dmNameString}</a></h3>
+        </div>
+      );
+    })
+  
+    return (
+      <div>
+        {dmArray}
+      </div>
+    )
+  }
+
+
+  function ExternalList(props) {
+    const { external_names, currentChannel, changeChannelFunction } = props;
+    
+    const handleClick = (event) => {
+      event.preventDefault();
+      const linkName = event.target.textContent;
+      console.log("Clicked on" + linkName);
+      changeChannelFunction(linkName);
+    }
+
+    const externalArray = external_names.map((externalNameString) => {
+      let classListString = "px-2";
+      if(externalNameString === currentChannel) { //on current channel
+        classListString += " bg-warning";
+      }
+  
+      return (
+        <div className={classListString} key={externalNameString}>
+          <h3 key={externalNameString}><a className='channel-names' href={"/" + externalNameString} onClick={handleClick}>{externalNameString}</a></h3>
+        </div>
+      );
+    })
+  
+    return (
+      <div>
+        {externalArray}
+      </div>
+    )
+  }
+
+
   function ComposeForm(props) {
-    const {addMessage} = props;
+    
+    const {addMessageFunction, currentChannel} = props;
 
     const [typedText, setTypedText] = useState('');
     console.log(typedText);
 
+    //typing
     const handleChange = (event) => {
       setTypedText(event.target.value);
     }
 
+    //submission
     const handleSubmit = (event) => {
       event.preventDefault();
+      const userObj = { userId: "netra", userName: "Netra", userImg: "/img/netra.JPG" }
 
-      addMessage("netra", typedText, "#main");
+      addMessageFunction(userObj, typedText, currentChannel);
       setTypedText('');
     }
 
     return (
       <form className="my-2" onSubmit={handleSubmit}>
         <div className="input-group">
-          <textarea className="form-control" rows="2" placeholder="Type a new message" value={typedText} onChange={handleChange}></textarea>
-          <button className="btn btn-secondary" type="submit">
+          <textarea className="form-control" rows="2" placeholder="Type a new message" value={typedText} onChange={handleChange} />
+          <button className="btn" type="submit">
             <span id="send-message" className="material-icons">send</span>
           </button>
         </div>
@@ -87,65 +148,58 @@ function MessagingPage() {
     );
   }
 
-  function ChatPane() {
 
-    const [currentCount, setCurrentCount] = useState(0);
+  function ChatPane() {
     const [chats, setChats] = useState(CHATS);
 
-    const handleClick = function(event) {
-      setCurrentCount(currentCount + 1);
-      console.log(currentCount);
-    }
-
-    const addMessage = (userName, text, channel) => {
-      const newMessage ={
-        "userId": userName,
-        "userName": userName,
-        "userImg": "../img/" + userName + ".JPG",
-        "text": text,
+    const addMessage = function(userObj, messageText, channel) {
+      const newMessage = {
+        "userId": userObj.userId,
+        "userName": userObj.userName,
+        "userImg": userObj.userImg,
+        "text": messageText,
         "timestamp": Date.now(),
         "channel": channel
       }
       const newArray = [...chats, newMessage];
-
-      setChats(newArray);
+      setChats(newArray); //update the board & re-render
     }
 
-  const messageObjArray = chats
-    .sort((m1, m2) => m1.timestamp - m2.timestamp);
+    const chronologicalMessages = chats
+      .sort((m1, m2) => m1.timestamp - m2.timestamp);
 
-  if (messageObjArray.length === 0) {
+    const channelMessages = chronologicalMessages.filter((msgObj) => {
+      return msgObj.channel === currentChannel;
+    })
+
+    const messageItemArray = channelMessages.map((chatObj) => {
+      const elem = <MessageChat key={chatObj.timestamp} messageData={chatObj} />
+      return elem; //put it in the new array!
+    });
+
     return (
-      <p>No messages found</p>
+      <div id="chat-area" className="scrollable-pane">
+        {/* button demo 
+        <div className="pt-2 my-2">
+          {/* button.addEventListener('click', handleClick) 
+          <button 
+            className="btn btn-success"
+            onClick={handleClick} 
+          >Click me!</button>
+          <p>You clicked me X times</p>
+        </div>
+        <hr/>
+      */}
+
+        {/* Messages */}
+        {messageItemArray.length === 0 && <p>No messages found</p>}
+        {messageItemArray}
+
+        <ComposeForm className="message_box" addMessageFunction={addMessage} />
+      </div>
     )
   }
 
-  const messageItemArray = messageObjArray.map((chatObj) => {
-    const elem = <MessageChat key={chatObj.timestamp} messageData={chatObj} />
-    return elem; //put it in the new array!
-  });
-
-  return (
-    <div id="chat-area" className="scrollable-pane">
-      {/* button demo 
-      <div className="pt-2 my-2">
-        {/* button.addEventListener('click', handleClick) 
-        <button 
-          className="btn btn-success"
-          onClick={handleClick} 
-        >Click me!</button>
-        <p>You clicked me X times</p>
-      </div>
-      <hr/>
-    */}
-
-      {/* Messages */}
-      {messageItemArray}
-
-      <ComposeForm className="message_box" addMessage={addMessage} />
-    </div>
-  )
-  }
 
   function MessageChat(props) {
     const {userName, userImg, text} = props.messageData;
@@ -200,8 +254,8 @@ function MessagingPage() {
                     arrow_drop_down
                   </span>
                 </div>
-                <ChannelList channelNames={channelsArray} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
-                {channelsArray}
+                <ChannelList channel_names={channel_names} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
+                {/*channelsArray*/}
                 {/*
                 <a href="messaging_iphone_p2.html" id="main-link">
                   <h3 id="main-channel" class="channel-names">#main</h3>
@@ -219,7 +273,7 @@ function MessagingPage() {
                     arrow_drop_down
                   </span>
                 </div>
-                {dmArray}
+                <DmList dm_names={dm_names} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
               </div>
               <div id="external-section">
                 <div className="dropdown">
@@ -232,7 +286,7 @@ function MessagingPage() {
                     arrow_drop_down
                   </span>
                 </div>
-                {externalArray}
+                <ExternalList external_names={external_names} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
               </div>
             </div>
             <div id="right-rect">
