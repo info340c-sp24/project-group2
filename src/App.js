@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'; // Remove BrowserRouter import
 
 import LoginPage from './pages/login';
 import './styles/login.css';
@@ -54,3 +54,6 @@ function App() {
 }
 
 export default App;
+
+
+
