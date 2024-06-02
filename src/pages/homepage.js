@@ -9,14 +9,14 @@ function HomePage() {
                     <h1>RSO Homepage</h1>
                 </div>
             </nav>
-
+            
             <div id="main">
                 <section id="home">
                     <ToDoList />
 
                     <div className="flex-container">
                         <div className="flex-item calendar">
-                            <img src={`img/calendar.png`} alt="Calendar Image" />
+                            <img src={`img/calendar.png`} alt="Calendar" />
                             <h2>
                                 <NavLink to="/calendar">Calendar</NavLink>
                             </h2>

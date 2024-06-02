@@ -19,7 +19,6 @@ import './styles/calendar.css';
 function App() {
   const loginProps = {
     title: 'RSO Communication Platform',
-    subtitle: 'Please login with your UW Net ID',
   };
 
   const mediaProps = {
@@ -31,13 +30,12 @@ function App() {
     <>
       <div>
         <Routes>
-          <Route path="/*" element={<Navigate to="/homepage" />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="login" element={<LoginPage {...loginProps} />} />
           <Route path="homepage" element={<HomePage />} />
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="messaging" element={<MessagingPage />} />
-          <Route path="media" element={<MediaPage />} />
-
+          <Route path="media" element={<MediaPage {...mediaProps} />} />
         </Routes>
         {/* <LoginPage /> */}
         {/* <HomePage /> */}
@@ -47,10 +45,11 @@ function App() {
         {/* <MediaPage /> */}
       </div>
       <footer>
-      <p>Copyright <span>&copy;</span> 2024. All rights reserved.</p>
+        <p>Copyright <span>&copy;</span> 2024. All rights reserved.</p>
       </footer>
-     </>
+    </>
   );
 }
 
 export default App;
+

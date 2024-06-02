@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { storage, db } from '../firebaseConfig';
-import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
-import { collection, addDoc, getDocs, query, orderBy } from 'firebase/firestore';
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebase/storage';
+import { collection, addDoc, getDocs, query, orderBy, deleteDoc, doc } from 'firebase/firestore';
 import '../styles/media.css';
 import { NavLink } from 'react-router-dom';
 
-function MediaPage({ recentUploads = [], olderFiles = [] }) {
+function MediaPage() {
   const [uploadFile, setUploadFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -62,12 +62,28 @@ function MediaPage({ recentUploads = [], olderFiles = [] }) {
     );
   };
 
-  const filteredFiles = uploadedFiles.filter((file) =>
-    file.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const handleDelete = async (file) => {
+    const fileRef = ref(storage, `uploads/${file.name}`);
+    try {
+      await deleteObject(fileRef);
+      await deleteDoc(doc(db, 'uploads', file.id));
+      setUploadedFiles(uploadedFiles.filter((item) => item.id !== file.id));
+      console.log(`File ${file.name} deleted successfully`);
+    } catch (error) {
+      console.error('Error deleting file:', error);
+    }
+  };
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredFiles = uploadedFiles
+    .filter((file) => file.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <div>
+    <div className="media-container">
       <Header />
       <main>
         <UploadForm 
@@ -76,8 +92,8 @@ function MediaPage({ recentUploads = [], olderFiles = [] }) {
           handleUpload={handleUpload}
           uploadProgress={uploadProgress}
         />
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <FileList files={filteredFiles} />
+        <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+        <FileList files={filteredFiles} handleDelete={handleDelete} />
       </main>
       <Footer />
     </div>
@@ -120,20 +136,20 @@ function UploadForm({ uploadFile, setUploadFile, handleUpload, uploadProgress })
   );
 }
 
-function SearchBar({ searchTerm, setSearchTerm }) {
+function SearchBar({ searchTerm, handleSearch }) {
   return (
     <section className="search-bar">
       <input
         type="text"
         placeholder="Search files"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={handleSearch}
       />
     </section>
   );
 }
 
-function FileList({ files }) {
+function FileList({ files, handleDelete }) {
   return (
     <section className="file-list">
       <h2>Files</h2>
@@ -141,8 +157,12 @@ function FileList({ files }) {
         {files.length > 0 ? (
           files.map((file, index) => (
             <div className="folder" key={index}>
-              <i className="material-icons">folder</i>
+              <i className="material-icons">insert_drive_file</i>
               <h3>{file.name}</h3>
+              <a href={file.url} target="_blank" rel="noopener noreferrer">
+                View File
+              </a>
+              <button onClick={() => handleDelete(file)}>Delete</button>
             </div>
           ))
         ) : (
@@ -160,6 +180,15 @@ function Footer() {
     </footer>
   );
 }
+
+
+
+
+
+
+
+
+
 
 
 

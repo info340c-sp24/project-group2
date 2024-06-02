@@ -27,13 +27,8 @@ h2 {
     color: black;
     font-weight: 600;
     margin-top: 15px;
-    margin-left: 15px;
-}
-
-h3 {
-    font-size: 22px;
-    color: #333;
-    font-weight: 600;
+    margin-bottom: 15px;
+    margin-left: 5px;
 }
 
 nav {
@@ -71,12 +66,12 @@ nav {
 #main {
     width: 70%;
     margin-top: 140px;
-    margin-bottom: 130px;
+    margin-bottom: 140px;
     margin-left: 40px;
     padding: 44px;
     background: #3f2850;
     border-radius: 10px;
-    position: relative;
+    position: fixed;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

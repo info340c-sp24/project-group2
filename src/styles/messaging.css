@@ -53,9 +53,12 @@ nav {
     justify-content: center;
 }
 
-.material-icons {
-    font-size: 60px;
+.material-icon {
+    position: fixed;
+    top: 10px;
+    left: 35px;
     color: #FEFCF9;
+    font-size: 24px;
 }
 
 .upper-left, .upper-right {
