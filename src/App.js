@@ -18,7 +18,7 @@ import './styles/calendar.css';
 
 function App() {
   const loginProps = {
-    title: 'RSO Communication Platform',
+    title: 'RSO Management Platform',
   };
 
   const mediaProps = {
@@ -30,7 +30,7 @@ function App() {
     <>
       <div>
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/*" element={<Navigate to="/login" />} />
           <Route path="login" element={<LoginPage {...loginProps} />} />
           <Route path="homepage" element={<HomePage />} />
           <Route path="calendar" element={<CalendarPage />} />

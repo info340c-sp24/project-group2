@@ -150,8 +150,6 @@ function MessagingPage() {
 
 
   function ChatPane() {
-
-    const [currentCount, setCurrentCount] = useState(0);
     const [chats, setChats] = useState(CHATS);
 
     const addMessage = function(userObj, messageText, channel) {
