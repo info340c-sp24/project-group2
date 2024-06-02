@@ -23,7 +23,7 @@ nav {
 }
 
 .upper-left {
-    position: absolute;
+    position: fixed;
     top: 9px;
     left: 38px;
 }

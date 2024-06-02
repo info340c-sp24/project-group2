@@ -180,10 +180,8 @@ function MessagingPage() {
         <div className="container">
           <h1>Messaging</h1>
         </div>
-        <NavLink to="homepage" className="upper-left" aria-label="Go to homepage">
-          <span className="material-icons" aria-label="Home">
-            home
-          </span>
+        <NavLink to="/homepage" className="home-icon" aria-label="Go to homepage">
+          <span className="material-icons home-icon">home</span>
         </NavLink>
       </nav>
       {/* Main section of content */}

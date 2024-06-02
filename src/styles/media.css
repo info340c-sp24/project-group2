@@ -34,9 +34,9 @@ h1 {
 }
 
 .home-icon {
-    position: absolute;
+    position: fixed;
     top: 10px;
-    left: 10px;
+    left: 35px;
     color: #FEFCF9;
     font-size: 24px;
 }
