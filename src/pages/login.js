@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { auth } from '../firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { NavLink } from 'react-router-dom';
 import '../styles/login.css';
 
 function LoginPage({ title, subtitle }) {
@@ -14,7 +15,8 @@ function LoginPage({ title, subtitle }) {
       .then(() => {
         console.log('Logged in successfully');
         setError(''); // Clear any previous error
-        window.location.href = '/homepage'; // Redirect to homepage or other page
+        <NavLink to="/homepage" />
+        //window.location.href = '/homepage'; // Redirect to homepage or other page
       })
       .catch((error) => {
         console.error('Error logging in:', error);
