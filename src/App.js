@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Routes, Route, Navigate } from 'react-router-dom';
-=======
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
->>>>>>> 3ecfd1596181512437916f9f758658acca4dc868
 
 import MessagingPage from './pages/messaging';
 import './styles/messaging.css';
@@ -48,7 +44,7 @@ function App() {
         {/* <CalendarPage /> */}
         {/* <MessagingPage /> */}
         {/* <MediaPage /> */}
-        <MediaPage /> 
+        {/* <MediaPage /> */}
       </div>
       <footer>
       <p>Copyright <span>&copy;</span> 2024. All rights reserved.</p>

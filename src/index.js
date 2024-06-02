@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-<<<<<<< HEAD
 import { BrowserRouter } from 'react-router-dom';
+//import 'bootstrap/dist/css/bootstrap.css';
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -22,9 +22,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-=======
-import './firebaseConfig';
->>>>>>> 3ecfd1596181512437916f9f758658acca4dc868
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
