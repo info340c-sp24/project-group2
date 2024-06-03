@@ -133,15 +133,14 @@ function Header() {
         </div>
       </div>
       {isProfileOpen && (
-        <div className="profile-popup">
+        <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
           <div className="profile-content">
-            <h2>Profile</h2>
-            <p>Role: Student</p>
-            <p>Username: nkanna</p>
-            <p>Email: nkanna@uw.edu</p>
-            <button onClick={toggleProfile}>Close</button>
+              <h2>Jane Doe</h2>
+              <p>Role: Student</p>
+              <p>Username: nkanna</p>
+              <p>Email: nkanna@uw.edu</p>
           </div>
-        </div>
+        </ProfilePopUp>
       )}
     </header>
   );
