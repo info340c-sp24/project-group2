@@ -1,5 +1,16 @@
 {
   "projects": {
     "default": "rso-management"
-  }
+  },
+  "targets": {
+    "rso-management": {
+      "storage": {
+        "main": [
+          "rso-management.web.app"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

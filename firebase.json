@@ -2,10 +2,10 @@
   "database": {
     "rules": "database.rules.json"
   },
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  },
+  //"firestore": {
+   // "rules": "firestore.rules",
+    //"indexes": "firestore.indexes.json"
+  //},
   "hosting": {
     "public": "build",
     "ignore": [
@@ -19,9 +19,9 @@
         "destination": "/index.html"
       }
     ]
-  },
-  "storage": {
-    "rules": "storage.rules"
   }
+  //"storage": {
+			//"target": "main",
+			//"rules": "rules/storage.rules"
+		//}
 }
-
