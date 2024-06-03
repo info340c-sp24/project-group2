@@ -12,18 +12,18 @@ function MediaPage() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    const fetchFiles = async () => {
-      const q = query(collection(db, 'uploads'), orderBy('timestamp', 'desc'));
-      const querySnapshot = await getDocs(q);
-      const files = [];
-      querySnapshot.forEach((doc) => {
-        files.push({ id: doc.id, ...doc.data() });
-      });
-      setUploadedFiles(files);
-    };
-
     fetchFiles();
   }, []);
+
+  const fetchFiles = async () => {
+    const q = query(collection(db, 'uploads'), orderBy('timestamp', 'desc'));
+    const querySnapshot = await getDocs(q);
+    const files = [];
+    querySnapshot.forEach((doc) => {
+      files.push({ id: doc.id, ...doc.data() });
+    });
+    setUploadedFiles(files);
+  };
 
   const handleUpload = (e) => {
     e.preventDefault();
@@ -50,14 +50,7 @@ function MediaPage() {
         });
         setUploadFile(null);
         setUploadProgress(0);
-        // Refresh file list
-        const q = query(collection(db, 'uploads'), orderBy('timestamp', 'desc'));
-        const querySnapshot = await getDocs(q);
-        const files = [];
-        querySnapshot.forEach((doc) => {
-          files.push({ id: doc.id, ...doc.data() });
-        });
-        setUploadedFiles(files);
+        fetchFiles(); // Refresh file list
       }
     );
   };
@@ -67,7 +60,7 @@ function MediaPage() {
     try {
       await deleteObject(fileRef);
       await deleteDoc(doc(db, 'uploads', file.id));
-      setUploadedFiles(uploadedFiles.filter((item) => item.id !== file.id));
+      setUploadedFiles((prevFiles) => prevFiles.filter((item) => item.id !== file.id));
       console.log(`File ${file.name} deleted successfully`);
     } catch (error) {
       console.error('Error deleting file:', error);
@@ -154,20 +147,17 @@ function FileList({ files, handleDelete }) {
     <section className="file-list">
       <h2>Files</h2>
       <div className="folder-container">
-        {files.length > 0 ? (
-          files.map((file, index) => (
-            <div className="folder" key={index}>
-              <i className="material-icons">insert_drive_file</i>
-              <h3>{file.name}</h3>
-              <a href={file.url} target="_blank" rel="noopener noreferrer">
-                View File
-              </a>
-              <button onClick={() => handleDelete(file)}>Delete</button>
-            </div>
-          ))
-        ) : (
-          <p>No files found.</p>
-        )}
+        {files.length > 0 && files.map((file, index) => (
+          <div className="folder" key={index}>
+            <i className="material-icons">insert_drive_file</i>
+            <h3>{file.name}</h3>
+            <a href={file.url} target="_blank" rel="noopener noreferrer">
+              View File
+            </a>
+            <button onClick={() => handleDelete(file)}>Delete</button>
+          </div>
+        ))}
+        {files.length === 0 && <p>No files found.</p>}
       </div>
     </section>
   );
@@ -180,6 +170,8 @@ function Footer() {
     </footer>
   );
 }
+
+
 
 
 
