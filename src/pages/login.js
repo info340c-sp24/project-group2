@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { auth } from '../firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import '../styles/login.css';
@@ -8,15 +7,14 @@ function LoginPage({ title, subtitle }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLogin = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         console.log('Logged in successfully');
-        setError(''); // Clear any previous error
-        navigate('/homepage'); // Use navigate to redirect
+        setError(''); 
+        window.location.href = '/homepage'; 
       })
       .catch((error) => {
         console.error('Error logging in:', error);
@@ -42,6 +40,7 @@ function LoginPage({ title, subtitle }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="nkanna@uw.edu"
             />
             <label htmlFor="password">Password:</label>
             <input
@@ -50,6 +49,7 @@ function LoginPage({ title, subtitle }) {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="RSOManagement"
             />
             <button type="submit" className="login-btn">Login</button>
           </form>
@@ -64,6 +64,7 @@ function LoginPage({ title, subtitle }) {
 }
 
 export default LoginPage;
+
 
 
 
