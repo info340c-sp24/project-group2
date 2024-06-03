@@ -128,7 +128,7 @@ function UploadForm({ uploadFile, setUploadFile, handleUpload, uploadProgress })
           style={{ display: 'none' }}
         />
         {uploadFile && (
-          <button type="submit" className="upload-btn">Upload</button>
+          <button type="submit" className="upload-btn">Click to Upload</button>
         )}
         {uploadProgress > 0 && <p>Upload Progress: {uploadProgress}%</p>}
       </form>
