@@ -17,15 +17,15 @@ const ProfilePopUp = ({ user, isOpen, onClose, onSignOut }) => {
             <div className="profile-content">
 
                 <div className="profile-picture-container">
-                    <img src="img/noUser.jpg" alt="Profile Picture" className="profile-picture" />
+                    <img src="img/noUser.jpg" alt="Profile" className="profile-picture" />
                 </div>
 
-                <h2>{user ? user.name : 'Jane Doe'}</h2>
-
+                <h2>Jane Doe</h2>
+                
                 <div className="user-details">
-                    <p>{user ? user.title : 'Role'}: Student</p>
-                    <p>{user ? user.username : 'Username'}: nkanna</p>
-                    <p>{user ? user.email : 'Email'}: nkanna@uw.edu</p>
+                    <p>Role: Student</p>
+                    <p>Username: nkanna</p>
+                    <p>Email: nkanna@uw.edu</p>
                 </div>
 
                 <div className="button-container">

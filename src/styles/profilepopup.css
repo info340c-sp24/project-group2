@@ -33,21 +33,16 @@ nav.nav-container {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 20px;
-    z-index: 1000;
+    z-index: 2000 !important;
 }
 
-.profile-content {
+.user-details {
+    margin: 2px 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.profile-content h2 {
-    margin: 0;
-}
-
-.profile-content p {
-    margin: 10px 0;
+    text-align: left;
 }
 
 .profile-content button {
@@ -72,8 +67,4 @@ nav.nav-container {
 .profile-picture {
     width: 100%;
     height: auto;
-}
-
-.user-details {
-    margin: 5px 0;
 }

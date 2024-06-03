@@ -238,6 +238,7 @@ nav a {
         font-weight: 500;
         color: #4F3265;
         border-bottom: 0.5px solid #AA8CBC;
+        z-index: 10;
     }
 
     .message-box {
@@ -297,3 +298,123 @@ nav a {
         background-position-x: 200px;
     }
 }
+
+/* following is css code for the profile pop up feature */
+nav.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background: #4F3265;
+    color: white; 
+    position: relative;
+}
+
+.nav-left {
+    flex: 1;
+}
+
+.nav-right {
+    flex: 0; 
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-icon {
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 40px;
+    top: 10px;
+}
+
+.profile-popup {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-content h2 {
+    margin: 0;
+}
+
+.profile-content p {
+    margin: 10px 0;
+}
+
+.profile-content button {
+    margin: 10px 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.profile-picture-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.profile-picture {
+    width: 100%;
+    height: auto;
+}
+
+.user-details {
+    margin: 5px 0;
+}
+
+.profile-content {
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
