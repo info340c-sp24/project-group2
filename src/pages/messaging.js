@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import CHATS from '../data/chats.json';
 import { NavLink } from 'react-router-dom';
+import ProfilePopUp from './profilepopup';
 //import Dropdown from 'react-bootstrap/Dropdown';
 
 function MessagingPage() {
@@ -16,6 +17,11 @@ function MessagingPage() {
   const channel_names = ["#main", "#exec", "#finance", "#social", "#random"];
   const dm_names = ["#user2", "#user3", "#user2, user3"];
   const external_names = ["#RSO15", "#RSO2", "#HUB Activities"];
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+  const toggleProfile = () => {
+    setIsProfileOpen(!isProfileOpen);
+  };
 
   const [currentChannel, setCurrentChannel] = useState('#main');
 
@@ -237,6 +243,19 @@ function MessagingPage() {
         <NavLink to="/homepage" className="home-icon" aria-label="Go to homepage">
           <span className="material-icons home-icon">home</span>
         </NavLink>
+        <div className="nav-right">
+          <div className="profile-icon" onClick={toggleProfile}>
+            <span className="material-icons">person</span>
+          </div>
+        </div>
+        <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
+          <div className="profile-content">
+            <h2>Profile</h2>
+            <p>Role: Student</p>
+            <p>Username: nkanna</p>
+            <p>Email: nkanna@uw.edu</p>
+          </div>
+        </ProfilePopUp>
       </nav>
       {/* Main section of content */}
       <div id="messaging-main">
