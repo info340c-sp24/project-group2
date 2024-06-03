@@ -165,6 +165,57 @@ nav {
     font-size: 1.5rem;
 }
 
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.task-description {
+    flex: 1;
+    margin-right: 10px;
+    color: black;
+}
+
+.done-button {
+    color: green;
+    border: 1px solid green; 
+    border-radius: 5px; 
+    background-color: white; 
+    cursor: pointer;
+    padding: 5px 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.done-button:hover {
+    background-color: #d3d0d0; 
+}
+
+.done-button .material-icons-outlined {
+    vertical-align: middle;
+}
+
+.add-button {
+    padding: 10px 20px;
+    margin-left: 10px; /* Adjust spacing between input and button */
+    margin-top: 10px; /* Add margin at the top */
+    color: green;
+    border: 1px solid green;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-button:hover {
+    background-color: #e0e0e0; /* Light grey background on hover */
+}
+
 footer {
     text-align: center;
     padding: 20px 10px;

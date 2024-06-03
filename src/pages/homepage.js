@@ -131,11 +131,14 @@ function renderTaskList(tasks, markCompleteCallback) {
 
     tasks.forEach(task => {
         const listItem = document.createElement('li');
-        listItem.classList.add('list-group-item');
-        listItem.textContent = ` ${task.description}`;
+        listItem.classList.add('list-group-item', 'task-item');
+
+        const descriptionSpan = document.createElement('span');
+        descriptionSpan.textContent = task.description;
+        descriptionSpan.classList.add('task-description');
 
         const button = document.createElement('button');
-        button.classList.add('btn', 'btn-sm', 'btn-warning');
+        button.classList.add('btn', 'btn-sm', 'done-button');
         button.innerHTML = '<span className="material-icons-outlined">done</span>';
 
         button.addEventListener('click', () => {
@@ -144,7 +147,8 @@ function renderTaskList(tasks, markCompleteCallback) {
             }
         });
 
-        listItem.prepend(button);
+        listItem.appendChild(descriptionSpan);
+        listItem.appendChild(button);
         ul.appendChild(listItem);
     });
 
