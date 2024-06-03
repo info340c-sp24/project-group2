@@ -175,6 +175,7 @@ footer {
     width: 100%;
 }
 
+/* following is css code for the profile pop up feature */
 nav.nav-container {
     display: flex;
     justify-content: space-between;

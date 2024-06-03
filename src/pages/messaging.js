@@ -248,14 +248,6 @@ function MessagingPage() {
             <span className="material-icons">person</span>
           </div>
         </div>
-        <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
-          <div className="profile-content">
-            <h2>Profile</h2>
-            <p>Role: Student</p>
-            <p>Username: nkanna</p>
-            <p>Email: nkanna@uw.edu</p>
-          </div>
-        </ProfilePopUp>
       </nav>
       {/* Main section of content */}
       <div id="messaging-main">
@@ -328,6 +320,16 @@ function MessagingPage() {
           </div>
         </div>
       </div>
+      {isProfileOpen && (
+        <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile}>
+          <div className="profile-content">
+            <h2>Profile</h2>
+            <p>Role: Student</p>
+            <p>Username: nkanna</p>
+            <p>Email: nkanna@uw.edu</p>
+          </div>
+        </ProfilePopUp>
+      )}
     </div>
   );
 }

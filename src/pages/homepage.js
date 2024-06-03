@@ -164,3 +164,8 @@ function getIncompleteTasks() {
         { id: 3, description: 'Upload Practice Video' }
     ];
 }
+
+/*
+CITATIONS:
+Problem Set 6 problem C from INFO340 C Lectures (ES6 Modules)
+*/
