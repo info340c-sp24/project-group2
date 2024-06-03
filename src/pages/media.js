@@ -11,6 +11,8 @@ function MediaPage() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [deletingFileId, setDeletingFileId] = useState(null); 
+  const [deleteProgress, setDeleteProgress] = useState(0); 
 
   useEffect(() => {
     fetchFiles();
@@ -57,15 +59,31 @@ function MediaPage() {
   };
 
   const handleDelete = async (file) => {
+    setDeletingFileId(file.id);
     const fileRef = ref(storage, `uploads/${file.name}`);
-    try {
-      await deleteObject(fileRef);
-      await deleteDoc(doc(db, 'uploads', file.id));
-      setUploadedFiles((prevFiles) => prevFiles.filter((item) => item.id !== file.id));
-      console.log(`File ${file.name} deleted successfully`);
-    } catch (error) {
-      console.error('Error deleting file:', error);
-    }
+
+    const deleteTask = deleteObject(fileRef);
+
+    const observer = {
+      next: (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setDeleteProgress(progress);
+      },
+      error: (error) => {
+        console.error('Error deleting file:', error);
+        setDeletingFileId(null);
+        setDeleteProgress(0);
+      },
+      complete: async () => {
+        await deleteDoc(doc(db, 'uploads', file.id));
+        setUploadedFiles((prevFiles) => prevFiles.filter((item) => item.id !== file.id));
+        setDeletingFileId(null);
+        setDeleteProgress(0);
+        console.log(`File ${file.name} deleted successfully`);
+      },
+    };
+
+    deleteTask.then(observer.complete).catch(observer.error);
   };
 
   const handleSearch = (e) => {
@@ -77,27 +95,26 @@ function MediaPage() {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-      <div className="media-container">
-        <Header />
-        <main>
-          <UploadForm 
-            uploadFile={uploadFile}
-            setUploadFile={setUploadFile}
-            handleUpload={handleUpload}
-            uploadProgress={uploadProgress}
-          />
-          <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-          <FileList files={filteredFiles} handleDelete={handleDelete} />
-        </main>
-        <Footer />
-      </div>
+    <div className="media-container">
+      <Header />
+      <main>
+        <UploadForm 
+          uploadFile={uploadFile}
+          setUploadFile={setUploadFile}
+          handleUpload={handleUpload}
+          uploadProgress={uploadProgress}
+        />
+        <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+        <FileList files={filteredFiles} handleDelete={handleDelete} deletingFileId={deletingFileId} deleteProgress={deleteProgress} />
+      </main>
+      <Footer />
+    </div>
   );
 }
 
 export default MediaPage;
 
 function Header() {
-
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const toggleProfile = () => {
@@ -115,14 +132,17 @@ function Header() {
           <span className="material-icons">person</span>
         </div>
       </div>
-      <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
-        <div className="profile-content">
-          <h2>Profile</h2>
-          <p>Role: Student</p>
-          <p>Username: nkanna</p>
-          <p>Email: nkanna@uw.edu</p>
+      {isProfileOpen && (
+        <div className="profile-popup">
+          <div className="profile-content">
+            <h2>Profile</h2>
+            <p>Role: Student</p>
+            <p>Username: nkanna</p>
+            <p>Email: nkanna@uw.edu</p>
+            <button onClick={toggleProfile}>Close</button>
+          </div>
         </div>
-      </ProfilePopUp>
+      )}
     </header>
   );
 }
@@ -163,12 +183,12 @@ function SearchBar({ searchTerm, handleSearch }) {
   );
 }
 
-function FileList({ files, handleDelete }) {
+function FileList({ files, handleDelete, deletingFileId, deleteProgress }) {
   return (
     <section className="file-list">
       <h2>Files</h2>
       <div className="folder-container">
-        {files.length > 0 && files.map((file, index) => (
+        {files.map((file, index) => (
           <div className="folder" key={index}>
             <i className="material-icons">insert_drive_file</i>
             <h3>{file.name}</h3>
@@ -176,6 +196,7 @@ function FileList({ files, handleDelete }) {
               View File
             </a>
             <button onClick={() => handleDelete(file)}>Delete</button>
+            {deletingFileId === file.id && <p>Deleting file: {deleteProgress}%</p>}
           </div>
         ))}
         {files.length === 0 && <p>No files found.</p>}
@@ -191,3 +212,10 @@ function Footer() {
     </footer>
   );
 }
+
+
+
+
+
+
+
