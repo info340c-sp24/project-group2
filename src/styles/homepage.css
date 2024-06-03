@@ -161,6 +161,11 @@ nav {
     color: #333333;
 }
 
+/* Add these styles to your homepage.css */
+.flex-item h2 {
+    font-size: 1.5rem; /* Adjust the size as needed */
+}
+
 footer {
     text-align: center;
     padding: 20px 10px;
@@ -170,3 +175,4 @@ footer {
     bottom: 0;
     width: 100%;
 }
+

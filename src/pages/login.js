@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { auth } from '../firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { NavLink } from 'react-router-dom';
@@ -8,6 +9,7 @@ function LoginPage({ title, subtitle }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,8 +17,7 @@ function LoginPage({ title, subtitle }) {
       .then(() => {
         console.log('Logged in successfully');
         setError(''); // Clear any previous error
-        <NavLink to="/homepage" />
-        //window.location.href = '/homepage'; // Redirect to homepage or other page
+        navigate('/homepage'); // Use navigate to redirect
       })
       .catch((error) => {
         console.error('Error logging in:', error);
@@ -28,7 +29,7 @@ function LoginPage({ title, subtitle }) {
     <div>
       <header>
         <div className="header-container">
-          <h1>{title}</h1>
+          <h1>RSO Communication Platform</h1>
           <p>{subtitle}</p>
         </div>
       </header>
@@ -64,6 +65,7 @@ function LoginPage({ title, subtitle }) {
 }
 
 export default LoginPage;
+
 
 
 

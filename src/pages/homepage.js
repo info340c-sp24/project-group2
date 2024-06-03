@@ -1,13 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import ProfilePopUp from './profilepopup';
 
 function HomePage() {
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+    const toggleProfile = () => {
+        setIsProfileOpen(!isProfileOpen);
+    };
+
     return (
         <>
-            <nav>
-                <div className="container">
+            <nav className="nav-container">
+
+                <div className="nav-left">
                     <h1>RSO Homepage</h1>
                 </div>
+
+                <div className="nav-right">
+                    <div className="profile-icon" onClick={toggleProfile}>
+                        <span className="material-icons">person</span>
+                    </div>
+                </div>
+                
             </nav>
             
             <div id="main">
@@ -38,6 +53,9 @@ function HomePage() {
                     </div>
                 </section>
             </div>
+
+            {/* Profile pop-up */}
+            <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} />
 
             <footer>
                 <p>
