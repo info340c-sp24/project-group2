@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/calendar.css';
 import { NavLink } from 'react-router-dom';
+import ProfilePopUp from './profilepopup';
 
 function NavBar({ title }) {
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+    const toggleProfile = () => {
+        setIsProfileOpen(!isProfileOpen);
+    };
+
     return (
         <nav>
             <div className="container">
@@ -11,6 +18,19 @@ function NavBar({ title }) {
             <NavLink to="/homepage" className="home-icon" aria-label="Go to homepage">
                 <span className="material-icons home-icon">home</span>
             </NavLink>
+            <div className="nav-right">
+                <div className="profile-icon" onClick={toggleProfile}>
+                    <span className="material-icons">person</span>
+                </div>
+            </div>
+            <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
+                <div className="profile-content">
+                    <h2>Profile</h2>
+                    <p>Role: Student</p>
+                    <p>Username: nkanna</p>
+                    <p>Email: nkanna@uw.edu</p>
+                </div>
+            </ProfilePopUp>
         </nav>
     );
 }
