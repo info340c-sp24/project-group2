@@ -65,7 +65,7 @@ nav {
 
 #main {
     width: 70%;
-    margin-top: 140px;
+    margin-top: 60px;
     margin-bottom: 140px;
     margin-left: 40px;
     padding: 44px;
@@ -161,9 +161,8 @@ nav {
     color: #333333;
 }
 
-/* Add these styles to your homepage.css */
 .flex-item h2 {
-    font-size: 1.5rem; /* Adjust the size as needed */
+    font-size: 1.5rem;
 }
 
 footer {

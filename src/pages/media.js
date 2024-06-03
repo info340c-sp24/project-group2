@@ -4,6 +4,7 @@ import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from 'firebas
 import { collection, addDoc, getDocs, query, orderBy, deleteDoc, doc } from 'firebase/firestore';
 import '../styles/media.css';
 import { NavLink } from 'react-router-dom';
+import ProfilePopUp from './profilepopup';
 
 function MediaPage() {
   const [uploadFile, setUploadFile] = useState(null);
@@ -76,32 +77,52 @@ function MediaPage() {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <div className="media-container">
-      <Header />
-      <main>
-        <UploadForm 
-          uploadFile={uploadFile}
-          setUploadFile={setUploadFile}
-          handleUpload={handleUpload}
-          uploadProgress={uploadProgress}
-        />
-        <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-        <FileList files={filteredFiles} handleDelete={handleDelete} />
-      </main>
-      <Footer />
-    </div>
+      <div className="media-container">
+        <Header />
+        <main>
+          <UploadForm 
+            uploadFile={uploadFile}
+            setUploadFile={setUploadFile}
+            handleUpload={handleUpload}
+            uploadProgress={uploadProgress}
+          />
+          <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
+          <FileList files={filteredFiles} handleDelete={handleDelete} />
+        </main>
+        <Footer />
+      </div>
   );
 }
 
 export default MediaPage;
 
 function Header() {
+
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+
+  const toggleProfile = () => {
+    setIsProfileOpen(!isProfileOpen);
+  };
+
   return (
     <header>
       <NavLink to="/homepage" className="home-icon" aria-label="Go to homepage">
         <span className="material-icons home-icon">home</span>
       </NavLink>
       <h1>Media Upload</h1>
+      <div className="nav-right">
+        <div className="profile-icon" onClick={toggleProfile}>
+          <span className="material-icons">person</span>
+        </div>
+      </div>
+      <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
+        <div className="profile-content">
+          <h2>Profile</h2>
+          <p>Role: Student</p>
+          <p>Username: nkanna</p>
+          <p>Email: nkanna@uw.edu</p>
+        </div>
+      </ProfilePopUp>
     </header>
   );
 }
@@ -170,22 +191,3 @@ function Footer() {
     </footer>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
