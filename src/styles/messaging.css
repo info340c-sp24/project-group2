@@ -3,7 +3,6 @@
     font-family: "Raleway";
 }
 
-/* code from centralized css stylesheet */
 #messaging-body {
     font-family: 'Raleway', sans-serif;
     background-color: #FEFCF9;
@@ -16,30 +15,7 @@
     background-color: #FEFCF9;
 }
 
-#chat-area {
-    padding: 20px;
-}
-
-#messageImg {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-}
-
-#like-btn {
-    font-size: 15px;
-}
-
-#like-btn:hover {
-    color: #D22B2B;
-}
-
-#likeBtn {
-    background-color: #F5EAF9;
-    border: none;
-}
-
-nav {
+#header {
     position: fixed;
     top: 0;
     left: 0;
@@ -74,7 +50,7 @@ nav {
     right: 38px;
 }
 
-h1 {
+#messaging-h1 {
     font-size: 37px;
     color: #FEFCF9;
     font-weight: 600;
@@ -91,43 +67,7 @@ footer {
     width: 100%;
 }
 
-/* end of code from centralized css stylesheet */
-
-/* commented out non-centralized heading code */
-/*
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-
-    background-color: #4F3265;
-    border-bottom-left-radius: 200px;
-    border-bottom-right-radius: 200px;
-}
-
-.material-icons {
-    font-size: 60px;
-}
-
-.upper-left {
-    position: absolute;
-    top: 9px;
-    left: 38px;
-}
-
-h1 {
-    text-align: center;
-    font-family: "Raleway", Helvetica, sans-serif;
-    font-size: 37px;
-    color: #FEFCF9;
-    font-weight: 600;
-    margin-top: 15px;
-}
-*/
-
-nav a {
+#header a {
     position: relative;
     bottom: 65px;
     left: 45px;
@@ -151,11 +91,35 @@ nav a {
     border-radius: 10px;
 }
 
+#channels-dropdown {
+    position: fixed;
+    bottom: 640px;
+    width: 364px;
+    background-color: #FDF8FF;
+    text-align: left;
+}
+
+#dms-dropdown {
+    position: fixed;
+    bottom: 540px;
+    width: 364px;
+    background-color: #FDF8FF;
+    text-align: left;
+}
+
+#externals-dropdown {
+    position: fixed;
+    bottom: 440px;
+    width: 364px;
+    background-color: #FDF8FF;
+    text-align: left;
+}
+
 #channels {
     display: flex;
     flex-direction: column;
     position: absolute;
-    bottom: 280px;
+    bottom: 90px;
 }
 
 #main-link {
@@ -166,8 +130,9 @@ nav a {
     font-size: 22px;
     font-weight: 550;
     color: #4F3265;
-    margin-bottom: 10px;
+    padding-top: 23px;
     margin-left: 10px;
+    margin-right: 5px;
 }
 
 .channel-flex-box {
@@ -180,9 +145,9 @@ nav a {
     font-weight: 400;
     color: #4F3265;
     text-decoration: none;
-    margin-top: 8px;
+    margin-top: 8x;
     margin-bottom: 8px;
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 #current-channel {
@@ -193,24 +158,83 @@ nav a {
     display: none;
 }
 
-.dropdown {
-    display: flex;
-    flex-direction: row;
-}
-
-#dropdown-arrow {
-    font-size: 32px;
-    color: #4F3265;
-    padding-top: 17px;
-}
-
 #channel-section {
     width: 374px;
 }
 
+.bg-purple {
+    background-color: #F5EAF9;
+}
 
+#chat-area {
+    display: none;
+}
+
+#messageImg {
+    display: none;
+}
+
+#like-btn {
+    display: none;
+}
+
+#likeBtn {
+    display: none;
+}
+    
+#back-arrow h4 {
+    color: #4F3265;
+    font-size: 16px;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+    
+#back-arrow-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 25px;
+    color:#4F3265;
+}
 
 @media (min-width: 768px) {
+    #back-arrow h4 {
+        display: none;
+    }
+        
+    #back-arrow-icon {
+        display: none;
+    }
+
+    #chat-area {
+        display: block;
+        padding: 20px;
+    }
+    
+    #messageImg {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+    }
+    
+    #like-btn {
+        display: block;
+        font-size: 15px;
+        padding: none;
+    }
+    
+    #like-btn:hover {
+        color: #D22B2B;
+    }
+    
+    #likeBtn {
+        display: block;
+        background-color: #F5EAF9;
+        border: none;
+        padding: none;
+    }
 
     #left-rect {
         position: fixed;
@@ -241,22 +265,6 @@ nav a {
         z-index: 10;
     }
 
-    .message-box {
-        display: flex;
-        flex-direction: row;
-
-        position: fixed;
-        bottom: 110px;
-        left: 600px;
-        width: 749px;
-        height: 41px;
-        border-radius: 8px;
-        background-color: #FDF8FF;
-        border-style: solid;
-        border-width: 0.5px;
-        border-color: #4F3265;
-    }
-
     textarea {
         width: 749px;
         height: 41px;
@@ -270,25 +278,7 @@ nav a {
     #send-message {
         font-size: 40px;
         color: #4F3265;
-    }
-
-    .message-box h3 {
-        display: flex;
-        margin: 10px;
-        font-weight: 300;
-        position: fixed;
-        padding-left: 5px;
-    }
-
-    #send-icon {
-        font-size: 26px;
-        color: #4F3265;
-        padding-left: 710px;
-        padding-top: 6px;
-    }
-
-    #dropdown-arrow {
-        padding-top: 20px;
+        padding-bottom: 6px;
     }
 
     #main-channel {
@@ -300,7 +290,7 @@ nav a {
 }
 
 /* following is css code for the profile pop up feature */
-nav.nav-container {
+#header.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;

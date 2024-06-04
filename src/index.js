@@ -11,6 +11,7 @@ const supabase = createClient(
   "https://qlquwbkuupywrvgppbiw.supabase.co",
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFscXV3Ymt1dXB5d3J2Z3BwYml3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTc0Mzc4NTAsImV4cCI6MjAzMzAxMzg1MH0.1Fx6OcSpN2WuSMGK9qqPFjQ-OEbHGJFyRSSCg7QoxTs"
 );
+import 'bootstrap/dist/css/bootstrap.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -3,25 +3,21 @@ import { useState } from 'react';
 import CHATS from '../data/chats.json';
 import { NavLink } from 'react-router-dom';
 import ProfilePopUp from './profilepopup';
-//import Dropdown from 'react-bootstrap/Dropdown';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function MessagingPage() {
 
-  //const defaultUser = {userId: "netra", userName: "Netra", userImg: "/img/Netra.JPG"};
-  //const [currentUser, setCurrentUser] = useState(defaultUser);
-  /*
-  const changeUser = (newUser) => {
-    setCurrentUser(newUser);
-  }
-  */
-  const channel_names = ["#main", "#exec", "#finance", "#social", "#random"];
-  const dm_names = ["#user2", "#user3", "#user2, user3"];
-  const external_names = ["#RSO15", "#RSO2", "#HUB Activities"];
+  // Set-up profile pop-up
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const toggleProfile = () => {
     setIsProfileOpen(!isProfileOpen);
   };
+
+  // Set channels and channel list functions (one for each group of channels) to display and navigate through channels
+  const channel_names = ["#main", "#exec", "#finance", "#social", "#random"];
+  const dm_names = ["#user2", "#user3", "#user2, user3"];
+  const external_names = ["#RSO15", "#RSO2", "#HUB Activities"];
 
   const [currentChannel, setCurrentChannel] = useState('#main');
 
@@ -35,20 +31,19 @@ function MessagingPage() {
     const handleClick = (event) => {
       event.preventDefault();
       const linkName = event.target.textContent;
-      console.log("Clicked on" + linkName);
       changeChannelFunction(linkName);
     }
 
     const channelArray = channel_names.map((channelNameString) => {
-      let classListString = "px-2";
-      if(channelNameString === currentChannel) { //on current channel
-        classListString += " bg-warning";
+      let classListString = "";
+      if(channelNameString === currentChannel) {
+        classListString += "bg-purple";
       }
   
       return (
-        <div className={classListString} key={channelNameString}>
-          <h3 key={channelNameString}><a className='channel-names' href={"/" + channelNameString} onClick={handleClick}>{channelNameString}</a></h3>
-        </div>
+            <div className={classListString} key={channelNameString}>
+              <h3 key={channelNameString}><a className='channel-names' href={"/" + channelNameString} onClick={handleClick}>{channelNameString}</a></h3>
+            </div>
       );
     })
   
@@ -70,9 +65,9 @@ function MessagingPage() {
     }
 
     const dmArray = dm_names.map((dmNameString) => {
-      let classListString = "px-2";
-      if(dmNameString === currentChannel) { //on current channel
-        classListString += " bg-warning";
+      let classListString = "";
+      if(dmNameString === currentChannel) {
+        classListString += "bg-purple";
       }
   
       return (
@@ -101,9 +96,9 @@ function MessagingPage() {
     }
 
     const externalArray = external_names.map((externalNameString) => {
-      let classListString = "px-2";
-      if(externalNameString === currentChannel) { //on current channel
-        classListString += " bg-warning";
+      let classListString = "";
+      if(externalNameString === currentChannel) {
+        classListString += "bg-purple";
       }
   
       return (
@@ -120,23 +115,22 @@ function MessagingPage() {
     )
   }
 
-
-  function ComposeForm(props) {
+  // Create message box form for typing in forms
+  function MessageBoxForm(props) {
     
     const {addMessageFunction, currentChannel} = props;
 
     const [typedText, setTypedText] = useState('');
     console.log(typedText);
 
-    //typing
     const handleChange = (event) => {
-      setTypedText(event.target.value);
+      const typedValue = event.target.value;
+      setTypedText(typedValue);
     }
 
-    //submission
     const handleSubmit = (event) => {
       event.preventDefault();
-      const userObj = { userId: "netra", userName: "Netra", userImg: "/img/netra.JPG" }
+      const userObj = { userId: "nkanna", userName: "nkanna", userImg: "/img/noUser.jpg" }
 
       addMessageFunction(userObj, typedText, currentChannel);
       setTypedText('');
@@ -145,7 +139,7 @@ function MessagingPage() {
     return (
       <form className="my-2" onSubmit={handleSubmit}>
         <div className="input-group">
-          <textarea className="form-control" rows="2" placeholder="Type a new message" value={typedText} onChange={handleChange} />
+          <textarea rows="2" placeholder="Type a new message" value={typedText} onChange={handleChange} />
           <button className="btn" type="submit">
             <span id="send-message" className="material-icons">send</span>
           </button>
@@ -154,8 +148,9 @@ function MessagingPage() {
     );
   }
 
-
-  function ChatPane() {
+  // Create messaging display to display sent messages
+  function MessagingDisplay(props) {
+    const { currentChannel } = props;
     const [chats, setChats] = useState(CHATS);
 
     const addMessage = function(userObj, messageText, channel) {
@@ -168,7 +163,7 @@ function MessagingPage() {
         "channel": channel
       }
       const newArray = [...chats, newMessage];
-      setChats(newArray); //update the board & re-render
+      setChats(newArray);
     }
 
     const chronologicalMessages = chats
@@ -180,50 +175,34 @@ function MessagingPage() {
 
     const messageItemArray = channelMessages.map((chatObj) => {
       const elem = <MessageChat key={chatObj.timestamp} messageData={chatObj} />
-      return elem; //put it in the new array!
+      return elem;
     });
 
     return (
       <div id="chat-area" className="scrollable-pane">
-        {/* button demo 
-        <div className="pt-2 my-2">
-          {/* button.addEventListener('click', handleClick) 
-          <button 
-            className="btn btn-success"
-            onClick={handleClick} 
-          >Click me!</button>
-          <p>You clicked me X times</p>
-        </div>
-        <hr/>
-      */}
-
-        {/* Messages */}
         {messageItemArray.length === 0 && <p>No messages found</p>}
         {messageItemArray}
 
-        <ComposeForm className="message_box" addMessageFunction={addMessage} />
+        <MessageBoxForm className="message_box" addMessageFunction={addMessage} currentChannel={currentChannel} />
       </div>
     )
   }
 
-
+  //Display message, and allow user to favorite/'like' messages
   function MessageChat(props) {
     const {userName, userImg, text} = props.messageData;
     const [color, setColor] = useState('white');
 
     const handleClick = (event) => {
-      console.log("You like a post by " + userName);
-      setColor('red');
+      setColor('#D22B2B');
     }
 
     return (
-      <div className="message">
-        <div>
-          <img id="messageImg" src={userImg} alt={userName + "'s profile picture"}/>
-          <strong>{userName}</strong>
-        </div>
+      <div>
+        <img id="messageImg" src={userImg} alt={userName + " profile picture"}/>
+        <strong>{userName}</strong>
         <p>{text}</p>
-        <button id="likeBtn" onClick={handleClick} className="btn btn-secondary" alt="Like">
+        <button id="likeBtn" onClick={handleClick} alt="Like">
           <span id="like-btn" className="material-icons" style={{color:color}} aria-label="Like">
             favorite
           </span>
@@ -236,9 +215,9 @@ function MessagingPage() {
   return (
     <div id="messaging-body">
       {/* Page header */}
-      <nav>
+      <div id="header">
         <div className="container">
-          <h1>Messaging</h1>
+          <h1 id="messaging-h1">Messaging</h1>
         </div>
         <NavLink to="/homepage" className="home-icon" aria-label="Go to homepage">
           <span className="material-icons home-icon">home</span>
@@ -248,74 +227,64 @@ function MessagingPage() {
             <span className="material-icons">person</span>
           </div>
         </div>
-      </nav>
+      </div>
       {/* Main section of content */}
       <div id="messaging-main">
         <div id="main-content">
           <div id="left-rect">
             <div id="channels">
               <div id="channel-section">
-                <div className="dropdown">
-                  <h2>channels</h2>
-                  <span
-                    id="dropdown-arrow"
-                    className="material-icons"
-                    aria-label="Collapse-channels"
-                  >
-                    arrow_drop_down
-                  </span>
-                </div>
-                <ChannelList channel_names={channel_names} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
-                {/*channelsArray*/}
-                {/*
-                <a href="messaging_iphone_p2.html" id="main-link">
-                  <h3 id="main-channel" class="channel-names">#main</h3>
-                </a>
-                */} 
+                <Dropdown>
+
+                  <Dropdown.Toggle variant="light" id="channels-dropdown">
+                    <h2>channels</h2>
+                  </Dropdown.Toggle>
+                  
+                  <Dropdown.Menu>
+                    <Dropdown.Item>
+                    <ChannelList channel_names={channel_names} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
               <div id="dm_section">
-                <div className="dropdown">
-                  <h2>direct messages</h2>
-                  <span
-                    id="dropdown-arrow"
-                    className="material-icons"
-                    aria-label="Collapse-dms"
-                  >
-                    arrow_drop_down
-                  </span>
-                </div>
-                <DmList dm_names={dm_names} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
+                <Dropdown>
+                  <Dropdown.Toggle variant="light" id="dms-dropdown">
+                    <h2>direct messages</h2>
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item>
+                    <DmList dm_names={dm_names} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
               <div id="external-section">
-                <div className="dropdown">
-                  <h2>external channels</h2>
-                  <span
-                    id="dropdown-arrow"
-                    className="material-icons"
-                    aria-label="Collapse-external"
-                  >
-                    arrow_drop_down
-                  </span>
-                </div>
-                <ExternalList external_names={external_names} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
+                <Dropdown>
+                  <Dropdown.Toggle variant="light" id="externals-dropdown">
+                    <h2>external channels</h2>
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item>
+                    <ExternalList external_names={external_names} currentChannel={currentChannel} changeChannelFunction={changeChannel}/>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
+            </div>
+            <div id="back-arrow">
+              <h4>back</h4>
+              <span id="back-arrow-icon" class="material-icons upper-lower-left" aria-label="Go-back">arrow_back</span>
             </div>
             <div id="right-rect">
               <div>
-                <h2 id="current-channel">#main</h2>
+                <h2 id="current-channel">{currentChannel}</h2>
               </div>
               <div id="messaging-chats" className="d-flex">
-                <ChatPane currentChannel={currentChannel} />
-                {/*<Messages chats={CHATS}/>*/}
+                <MessagingDisplay currentChannel={currentChannel} />
               </div>
-              {/*
-              <div className="message-box">
-                <h3>type a message</h3>
-                <span id="send-icon" className="material-icons" aria-label="Send">
-                  send
-                </span>
-              </div>
-              */}
             </div>
           </div>
         </div>
@@ -323,7 +292,7 @@ function MessagingPage() {
       {isProfileOpen && (
         <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
           <div className="profile-content">
-              <h2>Jane Doe</h2>
+              <h2>Niranjanaa Kannan</h2>
               <p>Role: Student</p>
               <p>Username: nkanna</p>
               <p>Email: nkanna@uw.edu</p>
@@ -337,119 +306,7 @@ function MessagingPage() {
 export default MessagingPage;
 
 /*
-function MessagingPage() {
-  return (
-    <>
-      <Header />
-      
-      <main>
-        <div id="main-content">
-          <LeftRect />
-          <RightRect />
-        </div>
-      </main>
-    </>
-  );
-}
-
-export default MessagingPage;
-
-
-function Header() {
-    return (
-      <nav>
-          <div className="container">
-              <h1>Messaging</h1>
-          </div>
-          <a href="homepage.html" className="upper-left">
-            <span className="material-icons" aria-label="Home">
-              home
-            </span>
-          </a>
-      </nav>
-    );
-}
-
-function LeftRect() {
-  return (
-    <div id="left-rect">
-      <div id="channels">
-        <div id="channel-section">
-          <div className="dropdown">
-            <h2>channels</h2>
-            <span
-              id="dropdown-arrow"
-              className="material-icons"
-              aria-label="Collapse-channels"
-            >
-              arrow_drop_down
-            </span>
-          </div>
-          <a href="messaging_iphone_p2.html" id="main-link">
-            <h3 id="main-channel">#main</h3>
-          </a>
-          <h3>#exec</h3>
-          <h3>#finance</h3>
-          <h3>#social</h3>
-          <h3>#random</h3>
-        </div>
-        <div id="dm_section">
-          <div className="dropdown">
-            <h2>direct messages</h2>
-            <span
-              id="dropdown-arrow"
-              className="material-icons"
-              aria-label="Collapse-dms"
-            >
-              arrow_drop_down
-            </span>
-          </div>
-          <div>
-            <h3>#user2</h3>
-            <h3>#user3</h3>
-            <h3>#user2, user3</h3>
-          </div>
-        </div>
-        <div id="external-section">
-          <div className="dropdown">
-            <h2>external channels</h2>
-            <span
-              id="dropdown-arrow"
-              className="material-icons"
-              aria-label="Collapse-external"
-            >
-              arrow_drop_down
-            </span>
-          </div>
-          <div>
-            <h3>#RSO15</h3>
-            <h3>#RSO2</h3>
-            <h3>#HUB Activities</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function RightRect() {
-  return (
-    <div id="right-rect">
-      <div>
-        <h2>#main</h2>
-      </div>
-      <div id="message-box">
-        <h3>type a message</h3>
-        <span id="send-icon" className="material-icons" aria-label="Send">
-          send
-        </span>
-      </div>
-    </div>
-  );
-}
-*/
-
-/*
 CITATIONS:
-Chatbot demo from INFO340 C Lectures 13 & 14
+Work supported by:
+Chatbot demo from INFO340 C Lectures 13, 14, & 15
 */

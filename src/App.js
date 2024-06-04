@@ -82,9 +82,13 @@ function App() {
           <Route path="/messaging" element={<MessagingPage />} />
           <Route path="/media" element={<MediaPage />} />
         </Routes>
-        <footer>
-          <p>Copyright <span>&copy;</span> 2024. All rights reserved.</p>
-        </footer>
+
+        {/* <LoginPage /> */}
+        {/* <HomePage /> */}
+        {/* <CalendarPage /> */}
+        {/* <MessagingPage /> */}
+        {/* <MediaPage /> */}
+        {/* <MediaPage /> */}
       </div>
     </>
   );
