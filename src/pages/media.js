@@ -7,12 +7,12 @@ import { NavLink } from 'react-router-dom';
 import ProfilePopUp from './profilepopup';
 
 function MediaPage() {
-  const [uploadFile, setUploadFile] = useState(null);
-  const [uploadProgress, setUploadProgress] = useState(0);
+  const [uploadFiles, setUploadFiles] = useState([]);
+  const [uploadProgress, setUploadProgress] = useState({});
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [deletingFileId, setDeletingFileId] = useState(null); 
-  const [deleteProgress, setDeleteProgress] = useState(0); 
+  const [deletingFileId, setDeletingFileId] = useState(null);
+  const [deleteProgress, setDeleteProgress] = useState(0);
 
   useEffect(() => {
     fetchFiles();
@@ -30,60 +30,58 @@ function MediaPage() {
 
   const handleUpload = (e) => {
     e.preventDefault();
-    if (!uploadFile) return;
+    if (uploadFiles.length === 0) return;
 
-    const storageRef = ref(storage, `uploads/${uploadFile.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, uploadFile);
+    uploadFiles.forEach((file) => {
+      const storageRef = ref(storage, `uploads/${file.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on(
-      'state_changed',
-      (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProgress(progress);
-      },
-      (error) => {
-        console.error('Upload failed:', error);
-      },
-      async () => {
-        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-        await addDoc(collection(db, 'uploads'), {
-          name: uploadFile.name,
-          url: downloadURL,
-          timestamp: new Date(),
-        });
-        setUploadFile(null);
-        setUploadProgress(0);
-        fetchFiles(); // Refresh file list
-      }
-    );
+      uploadTask.on(
+        'state_changed',
+        (snapshot) => {
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setUploadProgress((prevProgress) => ({
+            ...prevProgress,
+            [file.name]: progress,
+          }));
+        },
+        (error) => {
+          console.error('Upload failed:', error);
+        },
+        async () => {
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+          await addDoc(collection(db, 'uploads'), {
+            name: file.name,
+            url: downloadURL,
+            timestamp: new Date(),
+          });
+          setUploadFiles([]);
+          setUploadProgress({});
+          fetchFiles(); 
+        }
+      );
+    });
   };
 
   const handleDelete = async (file) => {
     setDeletingFileId(file.id);
+    setDeleteProgress(0); 
+
     const fileRef = ref(storage, `uploads/${file.name}`);
 
     const deleteTask = deleteObject(fileRef);
 
-    const observer = {
-      next: (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setDeleteProgress(progress);
-      },
-      error: (error) => {
-        console.error('Error deleting file:', error);
-        setDeletingFileId(null);
-        setDeleteProgress(0);
-      },
-      complete: async () => {
-        await deleteDoc(doc(db, 'uploads', file.id));
-        setUploadedFiles((prevFiles) => prevFiles.filter((item) => item.id !== file.id));
-        setDeletingFileId(null);
-        setDeleteProgress(0);
-        console.log(`File ${file.name} deleted successfully`);
-      },
-    };
-
-    deleteTask.then(observer.complete).catch(observer.error);
+    deleteTask.then(async () => {
+      await deleteDoc(doc(db, 'uploads', file.id));
+      setUploadedFiles((prevFiles) => prevFiles.filter((item) => item.id !== file.id));
+      setDeleteProgress(100); // Set progress to 100% upon completion
+      setDeletingFileId(null);
+      console.log(`File ${file.name} deleted successfully`);
+    }).catch((error) => {
+      console.error('Error deleting file:', error);
+      setDeletingFileId(null);
+      setDeleteProgress(0);
+    });
   };
 
   const handleSearch = (e) => {
@@ -98,9 +96,9 @@ function MediaPage() {
     <div className="media-container">
       <Header />
       <main>
-        <UploadForm 
-          uploadFile={uploadFile}
-          setUploadFile={setUploadFile}
+        <UploadForm
+          uploadFiles={uploadFiles}
+          setUploadFiles={setUploadFiles}
           handleUpload={handleUpload}
           uploadProgress={uploadProgress}
         />
@@ -133,12 +131,12 @@ function Header() {
         </div>
       </div>
       {isProfileOpen && (
-        <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
+        <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile}>
           <div className="profile-content">
-              <h2>Niranjanaa Kannan</h2>
-              <p>Role: Student</p>
-              <p>Username: nkanna</p>
-              <p>Email: nkanna@uw.edu</p>
+            <h2>Niranjanaa Kannan</h2>
+            <p>Role: Student</p>
+            <p>Username: nkanna</p>
+            <p>Email: nkanna@uw.edu</p>
           </div>
         </ProfilePopUp>
       )}
@@ -146,7 +144,11 @@ function Header() {
   );
 }
 
-function UploadForm({ uploadFile, setUploadFile, handleUpload, uploadProgress }) {
+function UploadForm({ uploadFiles, setUploadFiles, handleUpload, uploadProgress }) {
+  const handleFileChange = (e) => {
+    setUploadFiles(Array.from(e.target.files));
+  };
+
   return (
     <section className="upload-form">
       <form onSubmit={handleUpload}>
@@ -157,13 +159,18 @@ function UploadForm({ uploadFile, setUploadFile, handleUpload, uploadProgress })
           type="file"
           id="fileInput"
           accept="image/*, video/*, application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-          onChange={(e) => setUploadFile(e.target.files[0])}
+          onChange={handleFileChange}
+          multiple
           style={{ display: 'none' }}
         />
-        {uploadFile && (
+        {uploadFiles.length > 0 && (
           <button type="submit" className="upload-btn">Click to Upload</button>
         )}
-        {uploadProgress > 0 && <p>Upload Progress: {uploadProgress}%</p>}
+        {uploadFiles.map((file) => (
+          <p key={file.name}>
+            {file.name}: {uploadProgress[file.name] ? `${uploadProgress[file.name].toFixed(2)}%` : '0%'}
+          </p>
+        ))}
       </form>
     </section>
   );
@@ -211,6 +218,7 @@ function Footer() {
     </footer>
   );
 }
+
 
 
 
