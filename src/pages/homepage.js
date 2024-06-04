@@ -1,17 +1,42 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ProfilePopUp from './profilepopup';
+import { useSupabaseClient } from '@supabase/auth-helpers-react'; // Importing useSupabaseClient
+
+
 
 function HomePage() {
     const [isProfileOpen, setIsProfileOpen] = useState(false);
+    const supabase = useSupabaseClient();
 
     const toggleProfile = () => {
         setIsProfileOpen(!isProfileOpen);
     };
 
+    async function googleSignIn(){
+
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                scopes: 'https://www.googleapis.com/auth/calendar'
+            }
+        });
+        if(error) {
+            alert("Error logging in to Google provider with Supabase");
+            console.log(error);
+        }
+    }
+
+    async function signOut(){
+        await supabase.auth.signOut();
+    }
+
     return (
         <>
             <nav className="nav-container">
+                <h1>asd</h1>
+                <button onClick={() => googleSignIn()}>Sign In With Google</button>
+
 
                 <div className="nav-left">
                     <h1>RSO Homepage</h1>
@@ -26,6 +51,7 @@ function HomePage() {
             </nav>
             
             <div id="main">
+                <button onClick={() => googleSignIn()}>Sign In For Calendar</button>
                 <section id="home">
                     <ToDoList />
 

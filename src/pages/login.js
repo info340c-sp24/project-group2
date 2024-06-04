@@ -3,6 +3,7 @@ import { auth } from '../firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import '../styles/login.css';
 
+
 function LoginPage({ title, subtitle }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +14,7 @@ function LoginPage({ title, subtitle }) {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         console.log('Logged in successfully');
-        setError(''); 
+        setError('');
         window.location.href = '/homepage'; 
       })
       .catch((error) => {
