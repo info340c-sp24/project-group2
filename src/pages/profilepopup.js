@@ -20,8 +20,8 @@ const ProfilePopUp = ({ user, isOpen, onClose, onSignOut }) => {
                     <img src="img/noUser.jpg" alt="Profile" className="profile-picture" />
                 </div>
 
-                <h2>Jane Doe</h2>
-                
+                <h2>Niranjanaa Kannan</h2>
+
                 <div className="user-details">
                     <p>Role: Student</p>
                     <p>Username: nkanna</p>

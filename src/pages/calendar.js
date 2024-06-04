@@ -25,7 +25,7 @@ function NavBar({ title }) {
             </div>
             <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
                 <div className="profile-content">
-                    <h2>Jane Doe</h2>
+                    <h2>Niranjanaa Kannan</h2>
                     <p>Role: Student</p>
                     <p>Username: nkanna</p>
                     <p>Email: nkanna@uw.edu</p>
