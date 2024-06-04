@@ -4,7 +4,6 @@ import ProfilePopUp from './profilepopup';
 import { useSupabaseClient } from '@supabase/auth-helpers-react'; // Importing useSupabaseClient
 
 
-
 function HomePage() {
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const supabase = useSupabaseClient();

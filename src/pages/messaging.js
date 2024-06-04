@@ -289,6 +289,7 @@ function MessagingPage() {
           </div>
         </div>
       </div>
+      
       {isProfileOpen && (
         <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
           <div className="profile-content">
@@ -299,6 +300,7 @@ function MessagingPage() {
           </div>
         </ProfilePopUp>
       )}
+
     </div>
   );
 }
