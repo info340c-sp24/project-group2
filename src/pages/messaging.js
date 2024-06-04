@@ -19,7 +19,7 @@ function MessagingPage() {
   const dm_names = ["#user2", "#user3", "#user2, user3"];
   const external_names = ["#RSO15", "#RSO2", "#HUB Activities"];
 
-  const [currentChannel, setCurrentChannel] = useState(null);
+  const [currentChannel, setCurrentChannel] = useState('#main');
 
   const changeChannel = (newChannel) => {
     setCurrentChannel(newChannel);
