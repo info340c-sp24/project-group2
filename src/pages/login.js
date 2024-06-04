@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { auth } from '../firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { NavLink } from 'react-router-dom';
 import '../styles/login.css';
 
 function LoginPage({ title, subtitle }) {
