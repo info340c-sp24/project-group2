@@ -34,8 +34,6 @@ function HomePage() {
     return (
         <>
             <nav className="nav-container">
-                <h1>asd</h1>
-                <button onClick={() => googleSignIn()}>Sign In With Google</button>
 
 
                 <div className="nav-left">
