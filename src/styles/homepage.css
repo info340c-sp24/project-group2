@@ -64,29 +64,26 @@ nav {
 }
 
 #main {
-    width: 70%;
-    margin-top: 60px;
-    margin-bottom: 140px;
-    margin-left: 40px;
-    padding: 44px;
+    width: 100%; /* Adjusted for mobile */
+    margin-top: 80px; /* Adjusted for mobile */
+    padding: 20px; /* Adjusted for mobile */
     background: #3f2850;
-    border-radius: 10px;
-    position: fixed;
+    border-radius: 0; /* Adjusted for mobile */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .purple-rectangle {
     box-sizing: border-box;
-    position: fixed;
-    width: 340px;
-    height: 545px;
-    right: 40px;
-    top: 140px;
+    position: static; /* Adjusted for mobile */
+    width: 100%; /* Adjusted for mobile */
+    height: auto; /* Adjusted for mobile */
     background-color: #cac1d0;
     border: 0.5px solid #3c0b58;
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Adjusted for mobile */
+    margin-bottom: 20px; /* Adjusted for mobile */
 }
 
 .purple-rectangle ul {
@@ -112,27 +109,23 @@ nav {
 
 .flex-container {
     display: flex;
-    flex-direction: row; 
-    align-items: center;
+    flex-direction: column; /* Adjusted for mobile */
+    align-items: center; /* Adjusted for mobile */
     justify-content: center;
     margin-bottom: 70px;
     margin-left: auto; 
     flex-wrap: wrap;
+    margin-right: 17px;
 }
 
 .flex-item {
-    width: 300px;
-    height: 340px;
+    width: 100%; /* Adjusted for mobile */
     padding: 20px;
     background-color: #FFFFFF;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin: 10px; 
-    display: flex;
-    flex-direction: column; 
-    justify-content: space-between;
-    align-items: center;
+    margin: 10px;
 }
 
 .flex-item img {
@@ -148,8 +141,7 @@ nav {
 .flex-item.calendar,
 .flex-item.message,
 .flex-item.media {
-    width: 300px; 
-    height: 340px; 
+    width: 100%; /* Adjusted for mobile */
 }
 
 .flex-item.message img {
@@ -207,4 +199,3 @@ footer {
     bottom: 0;
     width: 100%;
 }
-

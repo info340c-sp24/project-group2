@@ -9,6 +9,7 @@ import 'react-datetime-picker/dist/DateTimePicker.css';
 import { useSession } from '@supabase/auth-helpers-react';
 import { Helmet } from 'react-helmet';
 
+
 function InsertEvent() {
     const session = useSession();
     const supabase = useSupabaseClient();
