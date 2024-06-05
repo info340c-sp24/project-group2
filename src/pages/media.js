@@ -218,7 +218,9 @@ function FileList({ files, handleDelete, deletingFileId, deleteProgress }) {
 function Footer() {
   return (
     <footer>
-      <p>Copyright © 2024. All rights reserved.</p>
+      <p>
+      Copyright <span>©</span> 2024 Project Group 2. All rights reserved.
+      </p>
     </footer>
   );
 }
