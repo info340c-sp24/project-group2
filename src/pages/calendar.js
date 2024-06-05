@@ -166,14 +166,16 @@ function NavBar({ title }) {
                     <span className="material-icons">person</span>
                 </div>
             </div>
-            <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile} >
+            {isProfileOpen && (
+                <ProfilePopUp isOpen={isProfileOpen} onClose={toggleProfile}>
                 <div className="profile-content">
                     <h2>Niranjanaa Kannan</h2>
                     <p>Role: Student</p>
                     <p>Username: nkanna</p>
                     <p>Email: nkanna@uw.edu</p>
                 </div>
-            </ProfilePopUp>
+                </ProfilePopUp>
+            )}
         </nav>
     );
 }
