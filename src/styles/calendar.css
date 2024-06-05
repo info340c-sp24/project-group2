@@ -1,237 +1,242 @@
 * {
-    box-sizing: border-box;
-    font-family: "Raleway";
-  }
-  
-  body {
-    background-color: #FEFCF9;
-  }
-  
+  box-sizing: border-box;
+  font-family: "Raleway";
+}
+
+body {
+  background-color: #FEFCF9;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #4F3265;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+}
+
+.material-icon {
+  position: fixed;
+  top: 10px;
+  left: 35px;
+  color: #FEFCF9;
+  font-size: 24px;
+}
+
+.upper-left, .upper-right {
+  position: absolute;
+  top: 9px;
+}
+
+.upper-left {
+  left: 38px;
+}
+
+.upper-right {
+  right: 38px;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Raleway", Helvetica, sans-serif;
+  font-size: 37px;
+  color: white;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.HeyMessage {
+  font-size: 30px;
+  text-align: center;
+}
+
+.calendarName {
+  color: white;
+}
+
+nav a {
+  position: relative;
+  bottom: 65px;
+  left: 45px;
+  color: #FEFCF9;
+}
+
+#main-content {
+  display:flex;
+  justify-content: center;
+}
+
+.calendly {
+  text-align: center;
+  background: #AA8CBC;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  width: 25%;
+  font-weight: medium;
+  color: white;
+  margin: 5% auto; /* Center horizontally and adjust vertical spacing */
+  padding: 15px 20px; /* Add padding for better appearance */
+  font-size: smaller;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
   nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: #4F3265;
-    border-bottom-left-radius: 200px;
-    border-bottom-right-radius: 200px;
-  }
-  
-  .material-icon {
-    position: fixed;
-    top: 10px;
-    left: 35px;
-    color: #FEFCF9;
-    font-size: 24px;
-  }
-  
-  .upper-left, .upper-right {
-    position: absolute;
-    top: 9px;
-  }
-  
-  .upper-left {
-    left: 38px;
-  }
-  
-  .upper-right {
-    right: 38px;
-  }
-  
-  h1 {
-    text-align: center;
-    font-family: "Raleway", Helvetica, sans-serif;
-    font-size: 37px;
-    color: white;
-    font-weight: 600;
-    margin-top: 15px;
+    height: 60px;
   }
 
-  .calendarName {
-    color: white;
+  .material-icons {
+    font-size: 40px;
   }
-  
+
+  h1 {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+
   nav a {
-    position: relative;
-    bottom: 65px;
-    left: 45px;
-    color: #FEFCF9;
+    bottom: 50px;
   }
-  
-  #main-content {
-    display:flex;
-    justify-content: center;
-  }
-  
+
   .calendly {
-    text-align: center;
-    background: #AA8CBC;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    width: 25%;
-    font-weight: medium;
-    color: white;
-    margin: 12% auto; /* Center horizontally and adjust vertical spacing */
-    padding: 20px; /* Add padding for better appearance */
-    font-size: smaller;
+    top: 12%;
+    width: 35%;
+    padding: 10px 15px; /* Adjust padding for smaller screens */
   }
-  
-  /* Media Queries */
-  @media screen and (max-width: 768px) {
-    nav {
-      height: 60px;
-    }
-  
-    .material-icons {
-      font-size: 40px;
-    }
-  
-    h1 {
-      font-size: 24px;
-      margin-top: 10px;
-    }
-  
-    nav a {
-      bottom: 50px;
-    }
-  
-    .calendly {
-      top: 12%;
-      width: 35%;
-    }
-  
-  }
-  
-  .section-link {
-    text-decoration: none;
-  }
-  
-  .section-link:hover {
-    opacity: 0.8;
-  }
-  
-  .section-link > div {
-    cursor: pointer;
-  }
-  
-  /* following is css code for the profile pop up feature */
-  nav.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40px;
-    background: #4F3265;
-    color: white; 
-    position: relative;
-  }
-  
-  .nav-left {
-    flex: 1;
-  }
-  
-  .nav-right {
-    flex: 0; 
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .profile-icon {
-    cursor: pointer;
-    font-size: 2rem;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: 40px;
-    top: 10px;
-  }
-  
-  .profile-popup {
-    position: fixed;
-    top: 10%;
-    right: 5%;
-    width: 300px;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 20px;
-    z-index: 1000;
-  }
-  
-  .profile-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .profile-content h2 {
-    margin: 0;
-  }
-  
-  .profile-content p {
-    margin: 10px 0;
-  }
-  
-  .profile-content button {
-    margin: 10px 0;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  .profile-picture-container {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%; 
-    overflow: hidden;
-    margin-bottom: 10px;
-  }
-  
-  .profile-picture {
-    width: 100%;
-    height: auto;
-  }
-  
-  .user-details {
-    margin: 5px 0;
-  }
-  
-  .profile-content {
-    color: black;
-  }
-  
-  /* Custom Calendar Styles */
-  .calendar {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .calendar-header {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .calendar-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-  }
-  
-  .day {
-    text-align: center;
-    padding: 5px;
-    border: 1px solid #ccc;
-  }
-  .addingEvent {
-    text-align: center;
-  }
-  
+}
+
+.section-link {
+  text-decoration: none;
+}
+
+.section-link:hover {
+  opacity: 0.8;
+}
+
+.section-link > div {
+  cursor: pointer;
+}
+
+/* following is css code for the profile pop up feature */
+nav.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background: #4F3265;
+  color: white; 
+  position: relative;
+}
+
+.nav-left {
+  flex: 1;
+}
+
+.nav-right {
+  flex: 0; 
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-icon {
+  cursor: pointer;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 40px;
+  top: 10px;
+}
+
+.profile-popup {
+  position: fixed;
+  top: 10%;
+  right: 5%;
+  width: 300px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-content h2 {
+  margin: 0;
+}
+
+.profile-content p {
+  margin: 10px 0;
+}
+
+.profile-content button {
+  margin: 10px 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.profile-picture-container {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; 
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.profile-picture {
+  width: 100%;
+  height: auto;
+}
+
+.user-details {
+  margin: 5px 0;
+}
+
+.profile-content {
+  color: black;
+}
+
+/* Custom Calendar Styles */
+.calendar {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.calendar-header {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.day {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.addingEvent {
+  text-align: center;
+}
