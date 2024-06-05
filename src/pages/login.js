@@ -58,7 +58,9 @@ function LoginPage({ title, subtitle }) {
         </div>
       </main>
       <footer>
-        <p>Copyright © 2024. All rights reserved.</p>
+        <p>
+          Copyright <span>©</span> 2024 Project Group 2. All rights reserved.
+        </p>
       </footer>
     </div>
   );
