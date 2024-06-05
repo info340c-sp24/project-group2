@@ -18,7 +18,7 @@ function InsertEvent() {
     const [ eventName, setEventName] = useState(new Date());
     const [ eventDescription, setEventDescription] = useState(new Date());
 
-    const calendlyLink = "https://calendar.google.com/calendar/u/0?cid=YWsxNDI5QHV3LmVkdQ";
+    const calendlyLink = "https://calendar.google.com/calendar/u/0/r/settings/calendar/YXJuZXkuY2hpbGxhcm5leUBnbWFpbC5jb20";
 
     async function googleSignIn() {
         const { error } = await supabase.auth.signInWithOAuth({
@@ -91,15 +91,15 @@ function InsertEvent() {
     return  (
         
         <div className='addingEvent'>
-            <div>
-                <Section title="Google Calendar" className="calendly" link={calendlyLink} />
-                <iframe src={url} style={{border: '0'}} width="800" height="600" frameBorder="0" scrolling="no"></iframe>
-            </div>
-            
             <div style={{width: '400px', margin: '30px auto'}}>
+                <p>      </p>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 {session ?
                     <>
-                        <h2>Hey There {session.user.email}</h2>
+                        <h2 className='HeyMessage'>Hey There {session.user.email}</h2>
                         {/* <p>Start your event</p> */}
                         {/* <DateTimePicker onChange={setStart} value={start} style={{ width: '100%' }} />
                         <p>End of event</p>
@@ -125,12 +125,20 @@ function InsertEvent() {
                 <p>Event Description</p>
                 <input type="text" onChange={(e) => setEventDescription(e.target.value)}/>
                 <button className="create-event-btn" onClick={() => createCalendarEvent()}> Create Calendar Event</button> */}
-                <p>      </p>
-                <br/>
-                <br/>
-                <br/>
 
             </div>
+            <div>
+                To view your google calendar you must make your google calendar public
+            </div>
+            <div>
+                <Section title="Make Google Calendar Public Here" className="calendly" link={calendlyLink} />
+                <iframe src={url} style={{border: '0'}} width="800" height="600" frameBorder="0" scrolling="no"></iframe>
+            </div>
+            <p>      </p>
+            <br/>
+            <br/>
+            <br/>
+        
         </div>
     )
 }
