@@ -50,7 +50,7 @@ function HomePage() {
             </nav>
             
             <div id="main">
-                <button onClick={() => googleSignIn()}>Sign In For Calendar</button>
+                {/* <button onClick={() => googleSignIn()}>Sign In For Calendar</button> */}
                 <section id="home">
                     <ToDoList />
 
