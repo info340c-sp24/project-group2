@@ -303,6 +303,11 @@ function MessagingPage() {
           </div>
         </ProfilePopUp>
       )}
+      <footer>
+        <p>
+          Copyright <span>©</span> 2024 Project Group 2. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }
