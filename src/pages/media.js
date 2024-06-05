@@ -125,10 +125,12 @@ function Header() {
 
   return (
     <header>
+      <div className="container">
+        <h1 className='calendarName'>Media Upload</h1>
+      </div>
       <NavLink to="/homepage" className="home-icon" aria-label="Go to homepage">
         <span className="material-icons home-icon">home</span>
       </NavLink>
-      <h1>Media Upload</h1>
       <div className="nav-right">
         <div className="profile-icon" onClick={toggleProfile}>
           <span className="material-icons">person</span>

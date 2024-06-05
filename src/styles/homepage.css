@@ -65,7 +65,7 @@ nav {
 
 #main {
     width: 100%; /* Adjusted for mobile */
-    margin-top: 80px; /* Adjusted for mobile */
+    margin-top: 45px; /* Adjusted for mobile */
     padding: 20px; /* Adjusted for mobile */
     background: #3f2850;
     border-radius: 0; /* Adjusted for mobile */
@@ -171,23 +171,14 @@ nav {
 }
 
 .done-button {
-    color: white;
+    color: #ddc0e9;
     border: 1px solid black; 
-    border-radius: 5px; 
-    background-color: rgb(24, 92, 24);    
+    border-radius: 5px;    
     cursor: pointer;
     padding: 5px 10px; 
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.done-button:hover {
-    background-color: #d3d0d0; 
-}
-
-.done-button .material-icons-outlined {
-    vertical-align: middle;
 }
 
 footer {
@@ -198,4 +189,31 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+}
+  
+.flex-item {
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+  
+.flex-item img {
+    width: 100px; 
+}
+  
+.flex-item h2 a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+  
+.flex-item h2 a:hover {
+    background-color: #ddc0e9;
 }
