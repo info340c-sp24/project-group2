@@ -181,6 +181,7 @@ function NavBar({ title }) {
     );
 }
 
+
 function Section({ title, className, link }) {
     return (
         <a href={link} className="section-link" target='_blank' rel='noopener noreferrer'>
@@ -190,6 +191,7 @@ function Section({ title, className, link }) {
         </a>
     );
 }
+
 
 function Main() {
     const calendlyLink = "https://calendar.google.com/calendar/u/0?cid=YWsxNDI5QHV3LmVkdQ";
