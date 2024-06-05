@@ -7,6 +7,7 @@ import DateTimePicker from 'react-datetime-picker'; // Importing DateTimePicker
 import { signOut } from 'firebase/auth';
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import { useSession } from '@supabase/auth-helpers-react';
+import { Helmet } from 'react-helmet';
 
 function InsertEvent() {
     const session = useSession();
@@ -143,6 +144,9 @@ function NavBar({ title }) {
 
     return (
         <nav>
+            <Helmet>
+                <title>RSO Communication Platform | Calendar</title>
+            </Helmet>
             <div className="container">
                 <h1 className='calendarName'>Calendar</h1>
             </div>

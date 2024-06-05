@@ -5,6 +5,7 @@ import { collection, addDoc, getDocs, query, orderBy, deleteDoc, doc } from 'fir
 import '../styles/media.css';
 import { NavLink } from 'react-router-dom';
 import ProfilePopUp from './profilepopup';
+import { Helmet } from 'react-helmet';
 
 function MediaPage() {
   const [uploadFiles, setUploadFiles] = useState([]);
@@ -94,6 +95,9 @@ function MediaPage() {
 
   return (
     <div className="media-container">
+      <Helmet>
+        <title>RSO Communication Platform | Media</title>
+      </Helmet>
       <Header />
       <main>
         <UploadForm

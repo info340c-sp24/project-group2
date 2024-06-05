@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ProfilePopUp from './profilepopup';
 import { useSupabaseClient } from '@supabase/auth-helpers-react'; // Importing useSupabaseClient
-
-
+import { Helmet } from 'react-helmet';
 
 function HomePage() {
     const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -32,9 +31,11 @@ function HomePage() {
     }
 
     return (
-        <>
+        <>  
             <nav className="nav-container">
-
+                <Helmet>
+                    <title>RSO Communication Platform | Home</title>
+                </Helmet>
 
                 <div className="nav-left">
                     <h1>RSO Homepage</h1>

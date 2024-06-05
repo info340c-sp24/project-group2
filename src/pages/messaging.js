@@ -4,6 +4,7 @@ import CHATS from '../data/chats.json';
 import { NavLink } from 'react-router-dom';
 import ProfilePopUp from './profilepopup';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { Helmet } from 'react-helmet';
 
 function MessagingPage() {
 
@@ -214,6 +215,9 @@ function MessagingPage() {
 
   return (
     <div id="messaging-body">
+      <Helmet>
+        <title>RSO Communication Platform | Messaging</title>
+      </Helmet>
       {/* Page header */}
       <div id="header">
         <div className="container">
